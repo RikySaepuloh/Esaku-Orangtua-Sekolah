@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Sekolah</string>
+    <string name="title_beranda">Beranda</string>
+    <string name="title_keuangan">Keuangan</string>
+    <string name="title_pesan">Pesan</string>
+    <string name="title_pengguna">Pengguna</string>
+
+    <!--  Beranda  -->
+    <string name="username">Profile Name</string>
+    <string name="alarm">Hari ini masuk sekolah jam 07.00</string>
+    <string name="menu_absensi">Absensi</string>
+    <string name="menu_pelajaran">Pelajaran</string>
+    <string name="menu_akademuik">Akademik</string>
+    <string name="menu_nilai">Nilai</string>
+    <string name="menu_raport">Raport</string>
+    <string name="menu_prestasi">Prestasi</string>
+    <string name="menu_ekskul">Ekskul</string>
+    <string name="menu_lainnya">Lainnya</string>
+    <string name="pengumuman">Informasi penting untuk Ibu/Bapak</string>
+    <string name="berita">Berita Sekolah</string>
+    <string name="judul_berita">Berita yang diinformasikan</string>
+    <string name="lihat_semua">Lihat semua</string>
+
+
+</resources>

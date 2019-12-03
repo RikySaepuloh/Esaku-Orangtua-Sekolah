@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_beranda">
+
+    <fragment
+        android:id="@+id/navigation_beranda"
+        android:name="com.saku.sekolah.ui.beranda.BerandaFragment"
+        android:label="@string/title_beranda"
+        tools:layout="@layout/fragment_beranda" />
+
+    <fragment
+        android:id="@+id/navigation_keuangan"
+        android:name="com.saku.sekolah.ui.keuangan.KeuanganFragment"
+        android:label="@string/title_keuangan"
+        tools:layout="@layout/fragment_keuangan" />
+
+    <fragment
+        android:id="@+id/navigation_pesan"
+        android:name="com.saku.sekolah.ui.pesan.PesanFragment"
+        android:label="@string/title_pesan"
+        tools:layout="@layout/fragment_pesan" />
+
+    <fragment
+        android:id="@+id/navigation_pengguna"
+        android:name="com.saku.sekolah.ui.pengguna.PenggunaFragment"
+        android:label="@string/title_pengguna"
+        tools:layout="@layout/fragment_pengguna" />
+</navigation>

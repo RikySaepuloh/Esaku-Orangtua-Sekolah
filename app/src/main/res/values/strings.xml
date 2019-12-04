@@ -21,5 +21,42 @@
     <string name="judul_berita">Berita yang diinformasikan</string>
     <string name="lihat_semua">Lihat semua</string>
 
+    <!--  Keuangan  -->
+    <string name="nama_sekolah">Nama Sekolah</string>
+    <string name="tagihan">Tagihan</string>
+    <string name="dana">Rp. 0.000.000</string>
+    <string name="bayar">Bayar</string>
+    <string name="rincian">Rincian</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="parameter">1 Bulan | 3 Parameter</string>
+    <string name="laporan">Laporan</string>
+    <string name="kartu_piutang">Kartu Piutang</string>
+    <string name="kartu_deposit">Kartu Deposit</string>
 
+    <!--  Pesan  -->
+    <string name="tanggal">01 Januari 2019</string>
+    <string name="pesan">Pesan</string>
+    <string name="notifikasi">Notifikasi</string>
+    <string name="judul_pesan">Judul Pesan</string>
+    <string name="isi_pesan">Isi Pesan</string>
+
+    <!--  Pengguna  -->
+    <string name="orang_tua">Orang Tua Murid</string>
+    <string name="email">example.mail@gmail.com</string>
+    <string name="notelp">081234567890</string>
+    <string name="siswa_aktif">Siswa Aktif</string>
+    <string name="biodata">Biodata Siswa</string>
+    <string name="keluar">Keluar</string>
+    
+    <!--  Metode Pembayaran  -->
+    <string name="metode_pembayaran">Metode Pembayaran</string>
+    <string name="text_no_id_bank">Nomor ID Bank</string>
+    <string name="no_id_bank">0000 0000 0000 0000</string>
+    <string name="cara_pembayaran">Cara Pembayaran</string>
+
+    <!--  Rincian  -->
+    <string name="rincian_tagihan">Rincian Tagihan</string>
+    <string name="rincian_kode_tagihan">ABCDE09876</string>
+    <string name="rincian_parameter">00 Parameter</string>
+    <string name="bulan">Januari 2019</string>
 </resources>

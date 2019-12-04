@@ -378,7 +378,7 @@
                 android:textColor="@color/colorBlack"
                 />
             <TextView
-                android:id="@+id/tv_lihatpengajuan"
+                android:id="@+id/tv_beranda_lihatsemua"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="end"
@@ -395,27 +395,28 @@
             android:layout_marginRight="20dp"
             app:cardCornerRadius="10dp"
             android:layout_height="wrap_content">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
+                android:minHeight="125dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/colorBluePrimary">
-                <TextView
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/pengumuman"
-                    android:textColor="@color/colorWhite"/>
-                <Button
-                    android:gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="end"
-                    android:layout_width="wrap_content"
-                    android:text="What"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                    android:background="@drawable/card_title"
+                    >
+                    <TextView
+                        android:id="@+id/tv_beranda_judulberita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:text="@string/judul_berita"/>
+                </LinearLayout>
+
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
-        
     </LinearLayout>
 
 </ScrollView>

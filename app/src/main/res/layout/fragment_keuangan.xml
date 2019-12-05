@@ -169,6 +169,7 @@
             android:textSize="20sp"
             android:textColor="@color/colorBlack"/>
         <LinearLayout
+            android:id="@+id/menu_piutang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -196,6 +197,7 @@
             android:background="@color/colorSoftGrey"
             />
         <LinearLayout
+            android:id="@+id/menu_deposit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

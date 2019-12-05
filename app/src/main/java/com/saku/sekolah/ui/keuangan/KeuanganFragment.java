@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.saku.sekolah.R;
@@ -20,8 +19,8 @@ import butterknife.BindView;
 public class KeuanganFragment extends Fragment {
 
     TextView keuTagihan;
-    String textTagihan,keuTag;
-    LinearLayout menuBayar,menuRincian,menuRiwayat;
+    String textTagihan, keuTag;
+    LinearLayout menuBayar, menuRincian, menuRiwayat,menuPiutang,menuDeposit;
 
     @Nullable
     @Override
@@ -29,7 +28,58 @@ public class KeuanganFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_keuangan, container, false);
         keuTagihan = view.findViewById(R.id.keu_tagihan);
         menuBayar = view.findViewById(R.id.menu_bayar);
+        menuRiwayat = view.findViewById(R.id.menu_riwayat);
         menuRincian = view.findViewById(R.id.menu_rincian);
+        menuPiutang= view.findViewById(R.id.menu_piutang);
+        menuDeposit = view.findViewById(R.id.menu_deposit);
+        menuRiwayat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RiwayatFragment newFragment = new RiwayatFragment();
+
+                FragmentTransaction transaction = null;
+                if (getFragmentManager() != null) {
+                    transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+            }
+        });
+        menuPiutang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PiutangFragment newFragment = new PiutangFragment();
+
+                FragmentTransaction transaction = null;
+                if (getFragmentManager() != null) {
+                    transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+            }
+        });
+        menuDeposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DepositFragment newFragment = new DepositFragment();
+
+                FragmentTransaction transaction = null;
+                if (getFragmentManager() != null) {
+                    transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
+            }
+        });
         menuRincian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

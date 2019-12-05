@@ -13,14 +13,13 @@ import androidx.fragment.app.FragmentManager;
 
 import com.saku.sekolah.R;
 
-public class RincianFragment extends Fragment {
-
+public class DepositFragment extends Fragment {
     TextView tvBack;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rincian, container, false);
-        tvBack = view.findViewById(R.id.tv_back);
+        View view = inflater.inflate(R.layout.fragment_deposit, container, false);
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

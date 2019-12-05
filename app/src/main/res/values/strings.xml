@@ -59,4 +59,29 @@
     <string name="rincian_kode_tagihan">ABCDE09876</string>
     <string name="rincian_parameter">00 Parameter</string>
     <string name="bulan">Januari 2019</string>
+
+    <!--  Riwayat Transaksi  -->
+    <string name="riwayat_transaksi">Riwayat Transaksi</string>
+    <string name="riwayat_deskripsi_tagihan">Deskripsi Tagihan</string>
+    <string name="riwayat_deskripsi_bayar">Deskripsi Pembayaran</string>
+    <string name="riwayat_tanggal">dd/mm/yyyy | 87654nbvc</string>
+    <string name="riwayat_tagihan">Tagihan</string>
+    <string name="riwayat_pembayaran">Pembayaran</string>
+    <string name="piutang_nama">Nama</string>
+    <string name="piutang_profile_name">: Profile Name</string>
+    <string name="piutang_nis">: 123456789</string>
+    <string name="piutang_bank">: 987654321234560</string>
+    <string name="piutang_judulbank">ID VA/Bank</string>
+    <string name="piutang_judulnis">NIS</string>
+    <string name="piutang_saldo">: Rp. 0</string>
+    <string name="piutang_judulsaldo">Saldo Awal</string>
+    <string name="piutang_keterangan">Keterangan</string>
+    <string name="piutang_nilai">Nilai</string>
+    <string name="piutang_transaksi">Transaksi</string>
+    <string name="list_piutang_tagihan">+ 1.000.000</string>
+    <string name="list_piutang_nilai">1.080.000</string>
+    <string name="deposit_kartudeposit">Kartu Deposit</string>
+    <string name="deposit_riwayat">Riwayat</string>
+    <string name="deposit">Deposit</string>
+    <string name="rincian_deposit">Rincian Deposit</string>
 </resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/riwayat_list_tanggalkode"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/riwayat_tanggal"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/riwayat_list_jenis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tagihan" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/riwayat_list_deskripsi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="2"
+            android:text="@string/riwayat_deskripsi_tagihan"/>
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/riwayat_list_jumlah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/dana"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorSoftGrey"/>
+<!--        <TextView-->
+<!--            android:id="@+id/riwayat_list_tanggalkode"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:text="@string/riwayat_tanggal"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/riwayat_list_jenis"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_toRightOf="@id/riwayat_list_tanggalkode"-->
+<!--        android:layout_toStartOf="@id/riwayat_list_jumlah"-->
+<!--        android:layout_above="@id/riwayat_list_jumlah"-->
+<!--        android:text="@string/tagihan" />-->
+
+<!--    <TextView-->
+<!--            android:id="@+id/riwayat_list_deskripsi"-->
+<!--            android:layout_below="@id/riwayat_list_tanggalkode"-->
+<!--            android:layout_toLeftOf="@id/riwayat_list_jumlah"-->
+<!--            android:layout_toStartOf="@id/riwayat_list_jumlah"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:text="@string/riwayat_deskripsi_tagihan"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/riwayat_list_jumlah"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/riwayat_list_tanggalkode"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:text="@string/dana"/>-->
+</LinearLayout>

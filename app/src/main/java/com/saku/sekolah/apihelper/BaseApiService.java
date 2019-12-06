@@ -1,5 +1,6 @@
 package com.saku.sekolah.apihelper;
 
+import com.saku.sekolah.model.login.KodePpPresenter;
 import com.saku.sekolah.model.login.LoginPresenter;
 
 import okhttp3.MultipartBody;
@@ -53,7 +54,7 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("Login.php?fx=getDaftarPP") // Ini untuk methodnya
-    Call<LoginPresenter> getDaftarPP(
+    Call<KodePpPresenter> getDaftarPP(
             @Field("nis") String nis);
 
     @GET("Aset.php?fx=getDaftarAsset") // Ini untuk methodnya

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +18,7 @@ import android.widget.Toast;
 
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
+import com.saku.sekolah.model.login.KodePpPresenter;
 import com.saku.sekolah.model.login.LoginPresenter;
 import com.saku.sekolah.model.login.PpItem;
 import com.saku.sekolah.preferences.Preferences;
@@ -29,7 +29,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -131,32 +130,33 @@ public class LoginActivity extends Activity {
 //        }
 //    }
 
-    private void login(String nis, String pass,String kodePP) {
-        mApiService.login(nis,pass,kodePP)
+    private void login(String nis, String pass,String kode_pp) {
+        mApiService.login(nis,pass,kode_pp)
                 .enqueue(new Callback<LoginPresenter>() {
                     @Override
                     public void onResponse(Call<LoginPresenter> call, Response<LoginPresenter> response) {
                         if (response.isSuccessful()) {
-                            if (response.body().getPp() != null) {
-                                List<PpItem> itemList = response.body().getPp();
-                                if (itemList.size() > 0) {
-                                    kodePpList.clear();
-                                    for (int i = 0; i < itemList.size(); i++) { //3 = Limit data
-                                        kodePpList.add(itemList.get(i).getKodePp() + " - " + itemList.get(i).getNama());
-                                        kodePpId.put(i,itemList.get(i).getKodePp());
-                                    }
-                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-                                            android.R.layout.simple_spinner_item, kodePpList);
-                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                                    spinner.setAdapter(adapter);
-                                }else{
-                                    kodePpList.clear();
-                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-                                            android.R.layout.simple_spinner_item, kodePpList);
-                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                                    spinner.setAdapter(adapter);
-                                    Toast.makeText(context, "Tidak ada data", Toast.LENGTH_LONG).show();
-                                }
+                            if (response.body() != null) {
+                                
+//                                List<PpItem> itemList = response.body().getPp();
+//                                if (itemList.size() > 0) {
+//                                    kodePpList.clear();
+//                                    for (int i = 0; i < itemList.size(); i++) { //3 = Limit data
+//                                        kodePpList.add(itemList.get(i).getKodePp() + " - " + itemList.get(i).getNama());
+//                                        kodePpId.put(i,itemList.get(i).getKodePp());
+//                                    }
+//                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
+//                                            android.R.layout.simple_spinner_item, kodePpList);
+//                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                                    spinner.setAdapter(adapter);
+//                                }else{
+//                                    kodePpList.clear();
+//                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
+//                                            android.R.layout.simple_spinner_item, kodePpList);
+//                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                                    spinner.setAdapter(adapter);
+//                                    Toast.makeText(context, "Tidak ada data", Toast.LENGTH_LONG).show();
+//                                }
                             }
                         }else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
@@ -172,9 +172,9 @@ public class LoginActivity extends Activity {
 
     private void initKodePP(String nis) {
         mApiService.getDaftarPP(nis)
-                .enqueue(new Callback<LoginPresenter>() {
+                .enqueue(new Callback<KodePpPresenter>() {
                     @Override
-                    public void onResponse(Call<LoginPresenter> call, Response<LoginPresenter> response) {
+                    public void onResponse(Call<KodePpPresenter> call, Response<KodePpPresenter> response) {
                         if (response.isSuccessful()) {
                             if (response.body().getPp() != null) {
                                 List<PpItem> itemList = response.body().getPp();
@@ -203,7 +203,7 @@ public class LoginActivity extends Activity {
                     }
 
                     @Override
-                    public void onFailure(Call<LoginPresenter> call, Throwable t) {
+                    public void onFailure(Call<KodePpPresenter> call, Throwable t) {
                         Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
                     }
                 });

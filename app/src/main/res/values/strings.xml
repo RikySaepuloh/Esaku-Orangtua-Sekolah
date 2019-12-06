@@ -4,6 +4,7 @@
     <string name="title_keuangan">Keuangan</string>
     <string name="title_pesan">Pesan</string>
     <string name="title_pengguna">Pengguna</string>
+    <string name="lupa_password">Lupa password? <font color='#ff0000'>Klik Disini</font></string>
 
     <!--  Beranda  -->
     <string name="username">Profile Name</string>

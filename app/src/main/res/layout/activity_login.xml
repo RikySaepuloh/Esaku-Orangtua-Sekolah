@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="text"
+            android:background="@drawable/rounded_outline_grey"
+            android:textColorHighlight="@color/colorRed"
+            android:textColorLink="@color/secondaryText"
+            android:textCursorDrawable="@color/secondaryText" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_centerVertical="true"
+                android:hint="Password"
+                android:paddingLeft="10dp"
+                android:background="@drawable/rounded_outline_grey"
+                android:textColorHighlight="@color/colorRed"
+                android:layout_gravity="center"
+                android:textColorLink="@color/secondaryText"
+                android:textCursorDrawable="@color/secondaryText"
+                android:inputType="textPassword" />
+            <TextView
+                android:id="@+id/btn_show"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:focusable="false"
+                android:layout_height="wrap_content"
+                android:text="show"
+                android:textColor="@color/colorRed"
+                />
+
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/login_spkodepp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/spinner_background"/>
+
+<!--        <ProgressBar-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:id="@+id/myprogressbar"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="invisible"-->
+<!--            android:indeterminateDrawable="@drawable/myprogressbar"-->
+<!--            />-->
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:text="Log In"
+            android:background="@drawable/rounded_background_blue"/>
+
+        <TextView
+            android:id="@+id/tv_lupa_password"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/lupa_password" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_register"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:text="@string/register" />-->
+
+
+    </LinearLayout>
+
+
+</ScrollView>

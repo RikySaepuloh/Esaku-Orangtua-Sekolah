@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
 import com.saku.sekolah.model.login.KodePpPresenter;
-import com.saku.sekolah.model.login.LoginPresenter;
+import com.saku.sekolah.model.login.Login;
 import com.saku.sekolah.model.login.PpItem;
 import com.saku.sekolah.preferences.Preferences;
 
@@ -68,7 +68,7 @@ public class LoginActivity extends Activity {
         context = this;
         sp = new Preferences(context);
 
-        if (sp.getLoggedStatus().equals("true")) {
+        if (sp.getIsLogedIn().equals(true)) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -101,6 +101,8 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String kode_plan = kodePpId.get(spinner.getSelectedItemPosition());
+                login(etUsername.getText().toString(),etPassword.getText().toString(),kode_plan);
 //                Toast.makeText(getApplicationContext(),"Berhasil Login",Toast.LENGTH_SHORT).show();
 //                Toast.makeText(null, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
 //                requestLogin();
@@ -130,33 +132,48 @@ public class LoginActivity extends Activity {
 //        }
 //    }
 
-    private void login(String nis, String pass,String kode_pp) {
-        mApiService.login(nis,pass,kode_pp)
-                .enqueue(new Callback<LoginPresenter>() {
+    private void login(String nik, String pass,String kode_pp) {
+        mApiService.login(nik,pass,kode_pp)
+                .enqueue(new Callback<Login>() {
                     @Override
-                    public void onResponse(Call<LoginPresenter> call, Response<LoginPresenter> response) {
+                    public void onResponse(Call<Login> call, Response<Login> response) {
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
-                                
-//                                List<PpItem> itemList = response.body().getPp();
-//                                if (itemList.size() > 0) {
-//                                    kodePpList.clear();
-//                                    for (int i = 0; i < itemList.size(); i++) { //3 = Limit data
-//                                        kodePpList.add(itemList.get(i).getKodePp() + " - " + itemList.get(i).getNama());
-//                                        kodePpId.put(i,itemList.get(i).getKodePp());
+                                if (response.body().isIsLogedIn()){
+                                    sp.saveUserLog(response.body().getUserLog());
+                                    sp.saveUserStatus(response.body().getUserStatus());
+                                    sp.saveNamaLokasi(response.body().getNamalokasi());
+                                    sp.saveKodePp(response.body().getKodePP());
+                                    sp.saveNoHp(response.body().getNoHp());
+                                    sp.saveUserPwd(response.body().getUserPwd());
+                                    sp.setLoggedStatus(response.body().isIsLogedIn());
+                                    sp.saveKodeLokasiKonsol(response.body().getKodeLokasiKonsol());
+                                    sp.saveNamaUser(response.body().getNamaUser());
+                                    sp.savePeriode(response.body().getPeriode());
+                                    sp.saveFormLogin(response.body().getFormLogin());
+                                    sp.saveLoginTime(response.body().getLoginTime());
+                                    sp.saveLogo(response.body().getLogo());
+                                    sp.saveNikUser(response.body().getNikUser());
+                                    sp.saveEmail(response.body().getEmail());
+                                    sp.saveKodeMenu(response.body().getKodeMenu());
+                                    sp.saveToken(response.body().getToken());
+                                    sp.saveExitUrl(response.body().getExitUrl());
+                                    sp.saveKodeFs(response.body().getKodeFs());
+                                    sp.saveHakAkses(response.body().getHakakses());
+                                    sp.saveFoto(response.body().getFoto());
+                                    sp.saveApiKey(response.body().getApiKey());
+                                    sp.saveLokasi(response.body().getLokasi());
+                                    sp.saveNamaPp(response.body().getNamaPP());
+                                    sp.saveDash(response.body().getDash());
+                                    sp.saveKodeBidang(response.body().getKodeBidang());
+//                                    if (sp.getIsLogedIn().equals(true)){
+//                                        Toast.makeText(context, "WHAT", Toast.LENGTH_SHORT).show();
 //                                    }
-//                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-//                                            android.R.layout.simple_spinner_item, kodePpList);
-//                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                                    spinner.setAdapter(adapter);
-//                                }else{
-//                                    kodePpList.clear();
-//                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-//                                            android.R.layout.simple_spinner_item, kodePpList);
-//                                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                                    spinner.setAdapter(adapter);
-//                                    Toast.makeText(context, "Tidak ada data", Toast.LENGTH_LONG).show();
-//                                }
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+
+                                }
                             }
                         }else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
@@ -164,7 +181,7 @@ public class LoginActivity extends Activity {
                     }
 
                     @Override
-                    public void onFailure(Call<LoginPresenter> call, Throwable t) {
+                    public void onFailure(Call<Login> call, Throwable t) {
                         Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
                     }
                 });

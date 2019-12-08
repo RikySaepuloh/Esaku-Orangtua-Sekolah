@@ -6,24 +6,33 @@ import android.content.SharedPreferences;
 public class Preferences {
 
     String APP_NAME="Sekolah";
-    String kode_lokasi="kode_lokasi";
-    String username="username";
-    String periode="periode";
-    String api_key="api_key";
-    String kodePP="kodePP";
-    String nama_user="nama_user";
-    String nik_user="nik_user";
-    String password="password";
-    String namaPP="namaPP";
-    //    boolean loggedIn=false;
-    String loggedIn="loggedIn";
-    String kode_jab="kode_jab";
-    String kode_rumah="kode_rumah";
-    String no_telp="no_telp";
-    String jabatan="jabatan";
-    String email="email";
-    String foto="foto";
-    String token="token";
+    private String userLog="user_log";
+    private String userStatus="user_status";
+    private String namalokasi="nama_lokasi";
+    private String kodePP="kode_pp";
+    private String noHp="no_hp";
+    private String userPwd="user_pwd";
+    private String isLogedIn="is_loged_in";
+    private String kodeLokasiKonsol="kode_lokasi_konsol";
+    private String namaUser="nama_user";
+    private String periode="periode";
+    private String formLogin="form_login";
+    private String loginTime="login_time";
+    private String logo="logo";
+    private String nikUser="nik_user";
+    private String email="email";
+    private String kodeMenu="kode_menu";
+    private String token="token";
+    private String exitUrl="exit_url";
+    private String kodeFs="kode_fs";
+    private String hakakses="hakakses";
+    private String foto="foto";
+    private String apiKey="api_key";
+    private String lokasi="lokasi";
+    private String namaPP="nama_pp";
+    private String dash="dash";
+    private String kodeBidang="kode_bidang";
+
 
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
@@ -38,158 +47,199 @@ public class Preferences {
         spEditor.commit();
     }
 
-    public void saveKodeRumah(String value){
-        spEditor.putString(kode_rumah, value);
+    public void saveUserStatus(String value){
+        spEditor.putString(userStatus, value);
         spEditor.commit();
     }
 
-    public void saveKodeLokasi(String value){
-        spEditor.putString(kode_lokasi, value);
+    public void saveNoHp(String value){
+        spEditor.putString(noHp, value);
+        spEditor.commit();
+    }
+    public void saveUserPwd(String value){
+        spEditor.putString(userPwd, value);
         spEditor.commit();
     }
 
-    public void saveUsername(String value){
-        spEditor.putString(username, value);
+    public void saveKodeLokasiKonsol(String value){
+        spEditor.putString(kodeLokasiKonsol, value);
         spEditor.commit();
     }
-
+    public void saveNamaUser(String value){
+        spEditor.putString(namaUser, value);
+        spEditor.commit();
+    }
     public void savePeriode(String value){
         spEditor.putString(periode, value);
         spEditor.commit();
     }
-
-    public void saveApiKey(String value){
-        spEditor.putString(api_key, value);
+    public void saveFormLogin(String value){
+        spEditor.putString(formLogin, value);
         spEditor.commit();
     }
-
-    public void saveKodePP(String value){
-        spEditor.putString(kodePP, value);
+    public void saveLoginTime(String value){
+        spEditor.putString(loginTime, value);
         spEditor.commit();
     }
-
-    public void saveNamaPP(String value){
-        spEditor.putString(namaPP, value);
+    public void saveLogo(String value){
+        spEditor.putString(logo, value);
         spEditor.commit();
     }
-
-    public void saveNamaUser(String value){
-        spEditor.putString(nama_user, value);
-        spEditor.commit();
-    }
-
     public void saveNikUser(String value){
-        spEditor.putString(nik_user, value);
+        spEditor.putString(nikUser, value);
         spEditor.commit();
     }
-
-    public void savePassword(String value){
-        spEditor.putString(password, value);
-        spEditor.commit();
-    }
-
-    public void setLoggedStatus(String value){
-        spEditor.putString(loggedIn, value);
-        spEditor.commit();
-    }
-
-    public void saveKodeJab(String value){
-        spEditor.putString(kode_jab, value);
-        spEditor.commit();
-    }
-
     public void saveEmail(String value){
         spEditor.putString(email, value);
         spEditor.commit();
     }
-
-    public void saveJabatan(String value){
-        spEditor.putString(jabatan, value);
+    public void saveKodeMenu(String value){
+        spEditor.putString(kodeMenu, value);
         spEditor.commit();
     }
-
-    public void saveNoTelp(String value){
-        spEditor.putString(no_telp, value);
-        spEditor.commit();
-    }
-
-
-    public void saveFoto(String value){
-        spEditor.putString(foto, value);
-        spEditor.commit();
-    }
-
     public void saveToken(String value){
         spEditor.putString(token, value);
         spEditor.commit();
     }
-
-    public String getToken() {
-        return sp.getString(token, "");
+    public void saveExitUrl(String value){
+        spEditor.putString(exitUrl, value);
+        spEditor.commit();
+    }
+    public void saveKodeFs(String value){
+        spEditor.putString(kodeFs, value);
+        spEditor.commit();
+    }
+    public void saveHakAkses(String value){
+        spEditor.putString(hakakses, value);
+        spEditor.commit();
+    }
+    public void saveFoto(String value){
+        spEditor.putString(foto, value);
+        spEditor.commit();
+    }
+    public void saveApiKey(String value){
+        spEditor.putString(apiKey, value);
+        spEditor.commit();
+    }
+    public void saveLokasi(String value){
+        spEditor.putString(lokasi, value);
+        spEditor.commit();
+    }
+    public void saveNamaPp(String value){
+        spEditor.putString(namaPP, value);
+        spEditor.commit();
     }
 
-    public String getFoto() {
-        return sp.getString(foto, "");
+    public void saveDash(String value){
+        spEditor.putString(dash, value);
+        spEditor.commit();
+    }
+    public void saveKodeBidang(String value){
+        spEditor.putString(kodeBidang, value);
+        spEditor.commit();
     }
 
-    public String getNo_telp() {
-        return sp.getString(no_telp, "");
+    public void saveUserLog(String value){
+        spEditor.putString(userLog, value);
+        spEditor.commit();
     }
 
-    public String getJabatan() {
-        return sp.getString(jabatan, "");
+    public void setUserStatus(String value){
+        spEditor.putString(userStatus, value);
+        spEditor.commit();
     }
 
-    public String getEmail() {
-        return sp.getString(email, "");
+    public void saveNamaLokasi(String value){
+        spEditor.putString(namalokasi, value);
+        spEditor.commit();
     }
 
-    public String getKode_jab() {
-        return sp.getString(kode_jab, "");
+    public void saveKodePp(String value){
+        spEditor.putString(kodePP, value);
+        spEditor.commit();
     }
 
-    public String getKodeRumah() {
-        return sp.getString(kode_rumah, "");
+    public void setLoggedStatus(Boolean value){
+        spEditor.putBoolean(isLogedIn, value);
+        spEditor.commit();
     }
 
-    public String getLoggedStatus(){
-        return sp.getString(loggedIn, "false");
+    public String getUserLog() {
+        return sp.getString(userLog, "");
     }
-
-    public String getUsername() {
-        return sp.getString(username, "");
+    public String getUserStatus() {
+        return sp.getString(getUserStatus(), "");
     }
-
-    public String getKodeLokasi() {
-        return sp.getString(kode_lokasi, "");
+    public String getNamalokasi() {
+        return sp.getString(namalokasi, "");
+    };
+    public String getKodePP() {
+        return sp.getString(getKodePP(), "");
     }
-
+    public String getNoHp() {
+        return sp.getString(noHp, "");
+    }
+    public String getUserPwd() {
+        return sp.getString(userPwd, "");
+    }
+    public String getKodeLokasiKonsol() {
+        return sp.getString(kodeLokasiKonsol, "");
+    }
+    public String getNamaUser() {
+        return sp.getString(namaUser, "");
+    }
     public String getPeriode() {
         return sp.getString(periode, "");
     }
-
-    public String getApiKey() {
-        return sp.getString(api_key, "");
+    public String getFormLogin() {
+        return sp.getString(formLogin, "");
     }
-
+    public String getLoginTime() {
+        return sp.getString(loginTime, "");
+    }
+    public String getLogo() {
+        return sp.getString(logo, "");
+    }
+    public String getNikUser() {
+        return sp.getString(nikUser, "");
+    }
+    public String getEmail() {
+        return sp.getString(email, "");
+    }
+    public String getKodeMenu() {
+        return sp.getString(kodeMenu, "");
+    }
+    public String getToken() {
+        return sp.getString(token, "");
+    }
+    public String getExitUrl() {
+        return sp.getString(exitUrl, "");
+    }
+    public String getKodeFs() {
+        return sp.getString(kodeFs, "");
+    }
+    public String getHakakses() {
+        return sp.getString(hakakses, "");
+    }
+    public String getFoto() {
+        return sp.getString(foto, "");
+    }
+    public String getApiKey() {
+        return sp.getString(apiKey, "");
+    }
+    public String getLokasi() {
+        return sp.getString(lokasi, "");
+    }
     public String getNamaPP() {
         return sp.getString(namaPP, "");
     }
-
-    public String getKodePP() {
-        return sp.getString(kodePP, "");
+    public String getDash() {
+        return sp.getString(dash, "");
     }
-
-    public String getNamaUser() {
-        return sp.getString(nama_user, "");
+    public String getKodeBidang() {
+        return sp.getString(kodeBidang, "");
     }
-
-    public String getNikUser() {
-        return sp.getString(nik_user, "");
+    public Boolean getIsLogedIn() {
+        return sp.getBoolean(isLogedIn, false);
     }
-
-    public String getPassword() {
-        return sp.getString(password, "");
-    }
-
 }

@@ -1,7 +1,7 @@
 package com.saku.sekolah.apihelper;
 
 import com.saku.sekolah.model.login.KodePpPresenter;
-import com.saku.sekolah.model.login.LoginPresenter;
+import com.saku.sekolah.model.login.Login;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -47,7 +47,7 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("Login.php?fx=login") // Ini untuk methodnya
-    Call<LoginPresenter> login(
+    Call<Login> login(
             @Field("nik") String nik,
             @Field("pass") String pass,
             @Field("kode_pp") String kode_pp);

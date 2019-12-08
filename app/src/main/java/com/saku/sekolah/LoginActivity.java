@@ -119,19 +119,6 @@ public class LoginActivity extends Activity {
 //        });
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-//        switch (requestCode) {
-//            case PERMISSION_REQUEST_CODE:
-//                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Log.d(TAG, "Phone number: " + getPhone());
-//                } else {
-//                    Toast.makeText(activity,"Permission Denied. We can't get phone number.", Toast.LENGTH_LONG).show();
-//                }
-//                break;
-//        }
-//    }
-
     private void login(String nik, String pass,String kode_pp) {
         mApiService.login(nik,pass,kode_pp)
                 .enqueue(new Callback<Login>() {

@@ -40,7 +40,7 @@ public class KeuanganFragment extends Fragment {
                 FragmentTransaction transaction = null;
                 if (getFragmentManager() != null) {
                     transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.add(R.id.nav_host_fragment, newFragment);
                     transaction.addToBackStack(null);
 
                     // Commit the transaction
@@ -56,7 +56,7 @@ public class KeuanganFragment extends Fragment {
                 FragmentTransaction transaction = null;
                 if (getFragmentManager() != null) {
                     transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.add(R.id.nav_host_fragment, newFragment);
                     transaction.addToBackStack(null);
 
                     // Commit the transaction
@@ -72,7 +72,7 @@ public class KeuanganFragment extends Fragment {
                 FragmentTransaction transaction = null;
                 if (getFragmentManager() != null) {
                     transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.add(R.id.nav_host_fragment, newFragment);
                     transaction.addToBackStack(null);
 
                     // Commit the transaction
@@ -88,7 +88,7 @@ public class KeuanganFragment extends Fragment {
                 FragmentTransaction transaction = null;
                 if (getFragmentManager() != null) {
                     transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
+                    transaction.add(R.id.nav_host_fragment, newFragment);
                     transaction.addToBackStack(null);
 
                     // Commit the transaction

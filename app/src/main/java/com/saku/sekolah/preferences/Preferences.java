@@ -165,7 +165,7 @@ public class Preferences {
     }
 
     public String getUserLog() {
-        return sp.getString(userLog, "");
+        return sp.getString(userLog, "N/A");
     }
     public String getUserStatus() {
         return sp.getString(getUserStatus(), "");
@@ -174,10 +174,10 @@ public class Preferences {
         return sp.getString(namalokasi, "");
     };
     public String getKodePP() {
-        return sp.getString(getKodePP(), "");
+        return sp.getString(kodePP, "");
     }
     public String getNoHp() {
-        return sp.getString(noHp, "");
+        return sp.getString(noHp, "N/A");
     }
     public String getUserPwd() {
         return sp.getString(userPwd, "");
@@ -204,7 +204,7 @@ public class Preferences {
         return sp.getString(nikUser, "");
     }
     public String getEmail() {
-        return sp.getString(email, "");
+        return sp.getString(email, "N/A");
     }
     public String getKodeMenu() {
         return sp.getString(kodeMenu, "");

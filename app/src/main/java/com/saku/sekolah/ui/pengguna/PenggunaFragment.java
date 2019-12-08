@@ -11,29 +11,38 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.saku.sekolah.LoginActivity;
-import com.saku.sekolah.MainActivity;
 import com.saku.sekolah.R;
-import com.saku.sekolah.model.login.Login;
 import com.saku.sekolah.preferences.Preferences;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class PenggunaFragment extends Fragment {
 
-    TextView tv_exit;
     Preferences sp;
     Context context;
+    @BindView(R.id.tv_pengguna_orangtua)
+    TextView tvPenggunaOrangtua;
+    @BindView(R.id.tv_pengguna_email)
+    TextView tvPenggunaEmail;
+    @BindView(R.id.tv_pengguna_notelp)
+    TextView tvPenggunaNotelp;
+    @BindView(R.id.tv_keluar)
+    TextView tvKeluar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pengguna, container, false);
-        context=getContext();
-        sp=new Preferences(context);
-        tv_exit=view.findViewById(R.id.tv_keluar);
-        tv_exit.setOnClickListener(new View.OnClickListener() {
+        ButterKnife.bind(this,view);
+        context = getContext();
+        sp = new Preferences(context);
+        tvPenggunaOrangtua.setText(sp.getUserLog());
+        tvPenggunaEmail.setText(sp.getEmail());
+        tvPenggunaNotelp.setText(sp.getNoHp());
+        tvKeluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sp.preferencesLogout();

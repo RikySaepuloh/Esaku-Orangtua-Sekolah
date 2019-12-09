@@ -10,6 +10,7 @@
     <color name="colorPurple">#C14CD9</color>
     <color name="colorMaroon">#D94C8E</color>
     <color name="colorGold">#D9CF4C</color>
+    <color name="colorYellow">#FFCC00</color>
     <color name="colorBlack">#000000</color>
     <color name="colorAccent">#D81B60</color>
     <color name="secondaryText">#8a000000</color>
@@ -19,6 +20,7 @@
     <color name="colorBackground">#f1f1f1</color>
     <color name="colorRed">#fa0001</color>
     <color name="colorRedDark">#cd0001</color>
+    <color name="colorRedSoft">#FF3B30</color>
     <color name="colorSoftGrey">#efefef</color>
     <color name="colorCream">#fef9db</color>
     <color name="colorGrey">#cccacd</color>

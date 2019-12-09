@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -46,6 +47,8 @@ public class LoginActivity extends Activity {
     TextView btnShow;
     @BindView(R.id.login_spkodepp)
     Spinner spinner;
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
     private Preferences sp;
     private Context context;
     int params;
@@ -73,14 +76,22 @@ public class LoginActivity extends Activity {
             startActivity(intent);
             finish();
         }
-        etUsername.setOnKeyListener(new View.OnKeyListener() {
+//        etUsername.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+//                initKodePP(etUsername.getText().toString());
+//                return false;
+//            }
+//        });
+
+        etUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                initKodePP(etUsername.getText().toString());
-                return false;
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    initKodePP(etUsername.getText().toString());
+                }
             }
         });
-//        initKodePP();
 
 
         btnShow.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +113,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
                 final String kode_plan = kodePpId.get(spinner.getSelectedItemPosition());
-                login(etUsername.getText().toString(),etPassword.getText().toString(),kode_plan);
+                login(etUsername.getText().toString(), etPassword.getText().toString(), kode_plan);
 //                Toast.makeText(getApplicationContext(),"Berhasil Login",Toast.LENGTH_SHORT).show();
 //                Toast.makeText(null, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
 //                requestLogin();
@@ -119,14 +130,15 @@ public class LoginActivity extends Activity {
 //        });
     }
 
-    private void login(String nik, String pass,String kode_pp) {
-        mApiService.login(nik,pass,kode_pp)
+    private void login(String nik, String pass, String kode_pp) {
+        progressBar.setVisibility(View.VISIBLE);
+        mApiService.login(nik, pass, kode_pp)
                 .enqueue(new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
                         if (response.isSuccessful()) {
                             if (response.body() != null) {
-                                if (response.body().isIsLogedIn()){
+                                if (response.body().isIsLogedIn()) {
                                     sp.saveUserLog(response.body().getUserLog());
                                     sp.saveUserStatus(response.body().getUserStatus());
                                     sp.saveNamaLokasi(response.body().getNamalokasi());
@@ -156,21 +168,25 @@ public class LoginActivity extends Activity {
 //                                    if (sp.getIsLogedIn().equals(true)){
 //                                        Toast.makeText(context, "WHAT", Toast.LENGTH_SHORT).show();
 //                                    }
+                                    progressBar.setVisibility(View.GONE);
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
 
-                                }else{
+                                } else {
+                                    progressBar.setVisibility(View.GONE);
                                     Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        }else {
+                        } else {
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Login> call, Throwable t) {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -186,15 +202,15 @@ public class LoginActivity extends Activity {
                                 List<PpItem> itemList = response.body().getPp();
                                 if (itemList.size() > 0) {
                                     kodePpList.clear();
-                                    for (int i = 0; i < itemList.size(); i++) { //3 = Limit data
+                                    for (int i = 0; i < itemList.size(); i++) {
                                         kodePpList.add(itemList.get(i).getKodePp() + " - " + itemList.get(i).getNama());
-                                        kodePpId.put(i,itemList.get(i).getKodePp());
+                                        kodePpId.put(i, itemList.get(i).getKodePp());
                                     }
                                     ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
                                             android.R.layout.simple_spinner_item, kodePpList);
                                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                     spinner.setAdapter(adapter);
-                                }else{
+                                } else {
                                     kodePpList.clear();
                                     ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
                                             android.R.layout.simple_spinner_item, kodePpList);
@@ -203,7 +219,7 @@ public class LoginActivity extends Activity {
                                     Toast.makeText(context, "Tidak ada data", Toast.LENGTH_LONG).show();
                                 }
                             }
-                        }else {
+                        } else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
                         }
                     }

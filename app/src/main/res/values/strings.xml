@@ -90,4 +90,5 @@
     <string name="angkatan">Angkatan</string>
     <string name="angkatan_text">: 2019-2020</string>
     <string name="rpl">: REKAYASA PERANGKAT LUNAK</string>
+    <string name="absensi_detail_absensi">Detail Absensi</string>
 </resources>

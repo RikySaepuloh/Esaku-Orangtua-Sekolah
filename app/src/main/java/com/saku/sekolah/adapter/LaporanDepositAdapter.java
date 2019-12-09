@@ -9,13 +9,18 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.saku.sekolah.MainActivity;
 import com.saku.sekolah.R;
 import com.saku.sekolah.model.keuangan.ModelLaporanDeposit;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.saku.sekolah.MainActivity.localeID;
 
 
 public class LaporanDepositAdapter extends RecyclerView.Adapter<LaporanDepositAdapter.LaporanDepositViewHolder> {
@@ -39,13 +44,13 @@ public class LaporanDepositAdapter extends RecyclerView.Adapter<LaporanDepositAd
     public void onBindViewHolder(final LaporanDepositViewHolder holder, int position) {
         holder.listPiutangTanggal.setText(dataList.get(position).getTanggal()+" | "+dataList.get(position).getKode());
         holder.listPiutangDeskripsi.setText(dataList.get(position).getDeskripsi());
-        holder.listPiutangNilai.setText(dataList.get(position).getNilai());
+        holder.listPiutangNilai.setText(NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getNilai())));
         if (dataList.get(position).getJenis().equals("D")){
-            holder.listPiutangTransaksi.setText("+ "+dataList.get(position).getTransaksi());
+            holder.listPiutangTransaksi.setText("+ "+NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getTransaksi())));
             holder.listPiutangTransaksi.setTextColor(Color.parseColor("#00C320"));
         }else{
             holder.listPiutangTransaksi.setTextColor(Color.parseColor("#007AFF"));
-            holder.listPiutangTransaksi.setText("- "+dataList.get(position).getTransaksi());
+            holder.listPiutangTransaksi.setText("- "+NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getTransaksi())));
         }
 
     }

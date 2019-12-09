@@ -12,15 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.saku.sekolah.R;
 import com.saku.sekolah.model.keuangan.ModelRiwayat;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.saku.sekolah.MainActivity.localeID;
+
 
 public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatViewHolder> {
-
-
 
     private ArrayList<ModelRiwayat> dataList;
     private Context ctx;
@@ -41,7 +43,12 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
     public void onBindViewHolder(final RiwayatViewHolder holder, int position) {
         holder.riwayatListTanggalkode.setText(dataList.get(position).getTanggal() + " | " + dataList.get(position).getKode());
         holder.riwayatListDeskripsi.setText(dataList.get(position).getDeskripsi());
-        holder.riwayatListJumlah.setText(dataList.get(position).getNilai());
+        holder.riwayatListJumlah.setText(NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getNilai())));
+        if (dataList.get(position).getJenis().equals("BILL")){
+            holder.riwayatListJenis.setText("Tagihan");
+        }else{
+            holder.riwayatListJenis.setText("Pembayaran");
+        }
 //        if (dataList.get(position).getJenis().equals("BILL")) {
 //            holder.listPiutangTransaksi.setText("- " + dataList.get(position).getTransaksi());
 //            holder.listPiutangTransaksi.setTextColor(Color.parseColor("#00C320"));

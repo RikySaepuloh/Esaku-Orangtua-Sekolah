@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -13,6 +16,10 @@
         android:focusableInTouchMode="true"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/saku"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etUsername"
@@ -79,14 +86,14 @@
             android:layout_marginLeft="50dp"
             />
 
-<!--        <ProgressBar-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:id="@+id/myprogressbar"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:visibility="invisible"-->
-<!--            android:indeterminateDrawable="@drawable/myprogressbar"-->
-<!--            />-->
+        <!--        <ProgressBar-->
+        <!--            android:layout_marginTop="15dp"-->
+        <!--            android:id="@+id/myprogressbar"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:visibility="invisible"-->
+        <!--            android:indeterminateDrawable="@drawable/myprogressbar"-->
+        <!--            />-->
 
         <Button
             android:id="@+id/btn_login"
@@ -108,16 +115,24 @@
             android:layout_marginTop="20dp"
             android:text="@string/lupa_password" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_register"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:text="@string/register" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_register"-->
+        <!--            android:gravity="center"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="30dp"-->
+        <!--            android:text="@string/register" />-->
 
 
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</FrameLayout>
 
 
 </ScrollView>

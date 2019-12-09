@@ -17,9 +17,11 @@
             android:text="@string/riwayat_tanggal"/>
 
         <TextView
-            android:layout_weight="1"
             android:id="@+id/riwayat_list_jenis"
+            android:layout_weight="1"
             android:layout_width="0dp"
+            android:textSize="12sp"
+            android:gravity="end"
             android:layout_height="wrap_content"
             android:text="@string/tagihan" />
     </LinearLayout>
@@ -34,11 +36,13 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:layout_weight="2"
+            android:textSize="12sp"
             android:text="@string/riwayat_deskripsi_tagihan"/>
         <TextView
             android:layout_weight="1"
             android:id="@+id/riwayat_list_jumlah"
             android:layout_width="0dp"
+            android:gravity="end"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:text="@string/dana"/>

@@ -67,6 +67,7 @@
                     android:textColor="@color/colorBlack"
                     />
                 <TextView
+                    android:id="@+id/tv_pengguna_siswa"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

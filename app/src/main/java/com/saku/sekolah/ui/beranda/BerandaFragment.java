@@ -1,6 +1,7 @@
 package com.saku.sekolah.ui.beranda;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.saku.sekolah.AbsensiActivity;
+import com.saku.sekolah.LoginActivity;
+import com.saku.sekolah.MainActivity;
 import com.saku.sekolah.R;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
@@ -65,6 +69,13 @@ public class BerandaFragment extends Fragment {
         sp = new Preferences(context);
         loadImage=new LoadImage(ivProfile,sp.getFoto());
         tvUsername.setText(sp.getNamaUser());
+        menuAbsensi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AbsensiActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

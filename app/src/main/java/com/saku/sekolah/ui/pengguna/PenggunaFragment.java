@@ -36,6 +36,8 @@ public class PenggunaFragment extends Fragment {
     LoadImage loadImage;
     @BindView(R.id.iv_profile)
     CircleImageView ivProfile;
+    @BindView(R.id.tv_pengguna_siswa)
+    TextView tvPenggunaSiswa;
 
     @Nullable
     @Override
@@ -45,6 +47,7 @@ public class PenggunaFragment extends Fragment {
         context = getContext();
         sp = new Preferences(context);
         loadImage = new LoadImage(ivProfile, sp.getFoto());
+        tvPenggunaSiswa.setText(sp.getNamaUser());
         tvPenggunaOrangtua.setText(sp.getUserLog());
         tvPenggunaEmail.setText(sp.getEmail());
         tvPenggunaNotelp.setText(sp.getNoHp());

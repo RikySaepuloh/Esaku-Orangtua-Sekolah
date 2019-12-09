@@ -14,10 +14,14 @@ import com.saku.sekolah.R;
 import com.saku.sekolah.model.ModelPesan;
 import com.saku.sekolah.model.keuangan.ModelPiutang;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.saku.sekolah.MainActivity.localeID;
 
 
 public class PiutangAdapter extends RecyclerView.Adapter<PiutangAdapter.PiutangViewHolder> {
@@ -42,13 +46,13 @@ public class PiutangAdapter extends RecyclerView.Adapter<PiutangAdapter.PiutangV
     public void onBindViewHolder(final PiutangViewHolder holder, int position) {
         holder.listPiutangTanggal.setText(dataList.get(position).getTanggal()+" | "+dataList.get(position).getKode());
         holder.listPiutangDeskripsi.setText(dataList.get(position).getDeskripsi());
-        holder.listPiutangNilai.setText(dataList.get(position).getNilai());
+        holder.listPiutangNilai.setText(NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getNilai())));
         if (dataList.get(position).getJenis().equals("BILL")){
-            holder.listPiutangTransaksi.setText("- "+dataList.get(position).getTransaksi());
+            holder.listPiutangTransaksi.setText("- "+ NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getTransaksi())));
             holder.listPiutangTransaksi.setTextColor(Color.parseColor("#00C320"));
         }else{
             holder.listPiutangTransaksi.setTextColor(Color.parseColor("#007AFF"));
-            holder.listPiutangTransaksi.setText("+ "+dataList.get(position).getTransaksi());
+            holder.listPiutangTransaksi.setText("+ "+NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getTransaksi())));
         }
 
 //        holder.listPiutangDeskripsi.setOnClickListener(new View.OnClickListener() {

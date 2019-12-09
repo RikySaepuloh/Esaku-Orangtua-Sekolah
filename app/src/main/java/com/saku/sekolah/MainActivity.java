@@ -20,7 +20,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static Locale localeID = new Locale("in","ID");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new PenggunaFragment();
                             break;
                     }
+                    getSupportFragmentManager().popBackStack();
                     return loadFragment(selectedFragment);
                 }
             };

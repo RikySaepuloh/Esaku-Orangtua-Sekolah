@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.saku.sekolah.R;
 import com.saku.sekolah.adapter.LaporanDepositAdapter;
 import com.saku.sekolah.adapter.PiutangAdapter;
+import com.saku.sekolah.adapter.RiwayatAdapter;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
 import com.saku.sekolah.model.keuangan.ModelLaporanDeposit;
@@ -27,6 +28,8 @@ import com.saku.sekolah.model.keuangan.ModelRiwayat;
 import com.saku.sekolah.model.keuangan.Piutang;
 import com.saku.sekolah.model.keuangan.Piutang2Item;
 import com.saku.sekolah.model.keuangan.PiutangItem;
+import com.saku.sekolah.model.keuangan.Riwayat;
+import com.saku.sekolah.model.keuangan.RiwayatItem;
 import com.saku.sekolah.preferences.Preferences;
 
 import java.util.ArrayList;
@@ -50,7 +53,7 @@ public class RiwayatFragment extends Fragment {
     private Context context;
     private Preferences sp;
     private ArrayList<ModelRiwayat> riwayatArrayList = new ArrayList<>();
-    private LaporanDepositAdapter adapter;
+    private RiwayatAdapter adapter;
 
     @Nullable
     @Override
@@ -60,6 +63,7 @@ public class RiwayatFragment extends Fragment {
         mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
+        initRiwayat(sp.getToken(), sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,57 +74,56 @@ public class RiwayatFragment extends Fragment {
         return view;
     }
 
-//    private void initRiwayat(String token, String nik, String kode_pp, String lokasi) {
-//        progressBar.setVisibility(View.VISIBLE);
-//        riwayatArrayList.clear();
-//        mApiService.getRiwayat(token, nik, kode_pp, lokasi)
-//                .enqueue(new Callback<Riwayat>() {
-//                    @Override
-//                    public void onResponse(Call<Riwayat> call, Response<Riwayat> response) {
-//                        if (response.isSuccessful()) {
-//                            if (response.body().isStatus()) {
-//                                List<RiwayatItem> dataSiswa = response.body().getDaftar();
-//                                if (dataSiswa.size() > 0) {
-//                                    for (int i = 0; i < dataSiswa.size(); i++) { //3 = Limit data
-//                                        tvPiutangSekolah.setText(dataSiswa.get(i).getNamaPp());
-//                                        tvPiutangNis.setText(": " + dataSiswa.get(i).getNis());
-//                                        tvPiutangNama.setText(": " + dataSiswa.get(i).getNama());
-//                                        tvPiutangBank.setText(": " + dataSiswa.get(i).getIdBank());
-//                                        tvPiutangSaldo.setText(": Rp. " + response.body().getSoAkhir());
-//                                    }
-//                                }
-//                                List<Piutang2Item> dataTransaksi = response.body().getDaftar2();
-//                                if (dataTransaksi.size() > 0) {
-//                                    for (int i = 0; i < dataTransaksi.size(); i++) { //3 = Limit data
-//                                        riwayatArrayList.add(new ModelRiwayat(
-//                                                dataTransaksi.get(i).getTgl(),
-//                                                dataTransaksi.get(i).getNoBukti(),
-//                                                dataTransaksi.get(i).getModul(),
-//                                                dataTransaksi.get(i).getBayar(),
-//                                                dataTransaksi.get(i).getTagihan(),
-//                                                dataTransaksi.get(i).getKeterangan()
-//                                        ));
-//                                    }
-//                                    adapter = new PiutangAdapter(riwayatArrayList);
-//                                    adapter.notifyDataSetChanged();
-//                                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-//                                    recyclerView.setLayoutManager(layoutManager);
-//                                    recyclerView.setAdapter(adapter);
-//                                }
-//                                progressBar.setVisibility(View.GONE);
-//                            }
-//                        } else {
-//                            Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
-//                            progressBar.setVisibility(View.GONE);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Piutang> call, Throwable t) {
-//                        Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
-//                        progressBar.setVisibility(View.GONE);
-//                    }
-//                });
-//    }
+    private void initRiwayat(String token, String nik, String kode_pp, String lokasi) {
+        progressBar.setVisibility(View.VISIBLE);
+        riwayatArrayList.clear();
+        mApiService.getRiwayat(token, nik, kode_pp, lokasi)
+                .enqueue(new Callback<Riwayat>() {
+                    @Override
+                    public void onResponse(Call<Riwayat> call, Response<Riwayat> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body().isStatus()) {
+                                List<RiwayatItem> dataTransaksi = response.body().getDaftar();
+                                if (dataTransaksi.size() > 0) {
+                                    for (int i = 0; i < dataTransaksi.size(); i++) {
+                                        if(dataTransaksi.get(i).getModul().equals("BILL")){
+                                            riwayatArrayList.add(new ModelRiwayat(
+                                                    dataTransaksi.get(i).getTgl(),
+                                                    dataTransaksi.get(i).getNoBukti(),
+                                                    dataTransaksi.get(i).getModul(),
+                                                    dataTransaksi.get(i).getKeterangan(),
+                                                    dataTransaksi.get(i).getTagihan()
+                                            ));
+                                        }else{
+                                            riwayatArrayList.add(new ModelRiwayat(
+                                                    dataTransaksi.get(i).getTgl(),
+                                                    dataTransaksi.get(i).getNoBukti(),
+                                                    dataTransaksi.get(i).getModul(),
+                                                    dataTransaksi.get(i).getKeterangan(),
+                                                    dataTransaksi.get(i).getBayar()
+                                            ));
+                                        }
+                                    }
+                                    adapter = new RiwayatAdapter(riwayatArrayList);
+                                    adapter.notifyDataSetChanged();
+                                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+                                    recyclerView.setLayoutManager(layoutManager);
+                                    recyclerView.setAdapter(adapter);
+                                }
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        } else {
+                            Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Riwayat> call, Throwable t) {
+                        Toast.makeText(context, "Koneksi Bermasalah", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+    }
 
 }

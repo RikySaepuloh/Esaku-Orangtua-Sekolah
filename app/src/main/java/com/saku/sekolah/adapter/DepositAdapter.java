@@ -12,10 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.saku.sekolah.R;
 import com.saku.sekolah.model.keuangan.ModelDeposit;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.saku.sekolah.MainActivity.localeID;
 
 
 public class DepositAdapter extends RecyclerView.Adapter<DepositAdapter.DepositViewHolder> {
@@ -42,10 +46,10 @@ public class DepositAdapter extends RecyclerView.Adapter<DepositAdapter.DepositV
         holder.listDepositTanggalkode.setText(dataList.get(position).getTanggal()+" | "+dataList.get(position).getKode());
         holder.listDepositJenis.setText(dataList.get(position).getJenis());
         if (dataList.get(position).getJenis().equals("Deposit")){
-            holder.listDepositJumlah.setText("+ "+dataList.get(position).getNilai());
+            holder.listDepositJumlah.setText("+ "+ NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getNilai())));
             holder.listDepositJenisgambar.setImageResource(R.drawable.ic_trans_deposit);
         }else{
-            holder.listDepositJumlah.setText("- "+dataList.get(position).getNilai());
+            holder.listDepositJumlah.setText("- "+NumberFormat.getNumberInstance(localeID).format(Integer.parseInt(dataList.get(position).getNilai())));
             holder.listDepositJenisgambar.setImageResource(R.drawable.ic_trans_pembayaran);
         }
     }

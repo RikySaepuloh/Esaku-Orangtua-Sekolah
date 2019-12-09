@@ -26,8 +26,10 @@ import com.saku.sekolah.model.keuangan.Piutang2Item;
 import com.saku.sekolah.model.keuangan.PiutangItem;
 import com.saku.sekolah.preferences.Preferences;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

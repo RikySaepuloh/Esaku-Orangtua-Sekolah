@@ -12,6 +12,6 @@
     <padding
         android:right="10dp"/>
     <solid
-        android:color="#efefef"/>
+        android:color="#cccacd"/>
 
 </shape>

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.saku.sekolah.R;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
+import com.saku.sekolah.preferences.LoadImage;
 import com.saku.sekolah.preferences.Preferences;
 
 import butterknife.BindView;
@@ -52,6 +53,8 @@ public class BerandaFragment extends Fragment {
     private Context context;
     private Preferences sp;
 
+    LoadImage loadImage;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,6 +63,7 @@ public class BerandaFragment extends Fragment {
         mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
+        loadImage=new LoadImage(ivProfile,sp.getFoto());
         tvUsername.setText(sp.getNamaUser());
         return view;
     }

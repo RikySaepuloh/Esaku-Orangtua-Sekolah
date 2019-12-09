@@ -40,13 +40,13 @@ public class PesanFragment extends Fragment {
         recyclerView = view.findViewById(R.id.pesan_recyclerview);
         firstTab.setBackgroundResource(R.drawable.tab_rounded_left_active);
         secondTab.setBackgroundResource(R.drawable.tab_rounded_right);
+
         pesanArrayList.add(new ModelPesan("01 Januari 2019","Ini judul","Ini Isi"));
         pesanArrayList.add(new ModelPesan("same","Ini judul","Ini Isi"));
         adapter = new PesanAdapter(pesanArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
         pesanTab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

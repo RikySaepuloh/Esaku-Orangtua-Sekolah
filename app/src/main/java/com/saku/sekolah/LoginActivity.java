@@ -160,6 +160,8 @@ public class LoginActivity extends Activity {
                                     startActivity(intent);
                                     finish();
 
+                                }else{
+                                    Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }else {

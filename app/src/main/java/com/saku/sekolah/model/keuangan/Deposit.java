@@ -5,16 +5,16 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Piutang{
+public class Deposit{
 
 	@SerializedName("so_akhir")
 	private String soAkhir;
 
 	@SerializedName("daftar")
-	private List<PiutangItem> daftar;
+	private List<DepositItem> daftar;
 
 	@SerializedName("daftar2")
-	private List<Piutang2Item> daftar2;
+	private List<Deposit2Item> daftar2;
 
 	@SerializedName("status")
 	private boolean status;
@@ -27,19 +27,19 @@ public class Piutang{
 		return soAkhir;
 	}
 
-	public void setDaftar(List<PiutangItem> daftar){
+	public void setDaftar(List<DepositItem> daftar){
 		this.daftar = daftar;
 	}
 
-	public List<PiutangItem> getDaftar(){
+	public List<DepositItem> getDaftar(){
 		return daftar;
 	}
 
-	public void setDaftar2(List<Piutang2Item> daftar2){
+	public void setDaftar2(List<Deposit2Item> daftar2){
 		this.daftar2 = daftar2;
 	}
 
-	public List<Piutang2Item> getDaftar2(){
+	public List<Deposit2Item> getDaftar2(){
 		return daftar2;
 	}
 
@@ -54,7 +54,7 @@ public class Piutang{
 	@Override
  	public String toString(){
 		return 
-			"Piutang{" + 
+			"Deposit{" + 
 			"so_akhir = '" + soAkhir + '\'' + 
 			",daftar = '" + daftar + '\'' + 
 			",daftar2 = '" + daftar2 + '\'' + 

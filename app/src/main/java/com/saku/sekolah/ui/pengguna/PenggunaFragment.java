@@ -14,10 +14,12 @@ import androidx.fragment.app.Fragment;
 
 import com.saku.sekolah.LoginActivity;
 import com.saku.sekolah.R;
+import com.saku.sekolah.preferences.LoadImage;
 import com.saku.sekolah.preferences.Preferences;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PenggunaFragment extends Fragment {
 
@@ -31,14 +33,18 @@ public class PenggunaFragment extends Fragment {
     TextView tvPenggunaNotelp;
     @BindView(R.id.tv_keluar)
     TextView tvKeluar;
+    LoadImage loadImage;
+    @BindView(R.id.iv_profile)
+    CircleImageView ivProfile;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pengguna, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         context = getContext();
         sp = new Preferences(context);
+        loadImage = new LoadImage(ivProfile, sp.getFoto());
         tvPenggunaOrangtua.setText(sp.getUserLog());
         tvPenggunaEmail.setText(sp.getEmail());
         tvPenggunaNotelp.setText(sp.getNoHp());

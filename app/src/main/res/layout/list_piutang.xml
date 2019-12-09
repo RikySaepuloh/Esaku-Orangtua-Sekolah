@@ -30,9 +30,18 @@
             android:textColor="@color/colorBlack"
             android:text="@string/list_piutang_nilai"/>
     </LinearLayout>
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorBlack"
-        android:text="@string/riwayat_deskripsi_tagihan"/>
+        android:orientation="horizontal"
+        android:weightSum="12">
+        <TextView
+            android:id="@+id/list_piutang_deskripsi"
+            android:layout_weight="6"
+            android:paddingRight="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/riwayat_deskripsi_tagihan"/>
+    </LinearLayout>
 </LinearLayout>

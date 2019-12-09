@@ -1,7 +1,6 @@
 package com.saku.sekolah.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,12 @@ import com.saku.sekolah.model.ModelPesan;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class PesanAdapter extends RecyclerView.Adapter<PesanAdapter.PesanViewHolder> {
+
     private ArrayList<ModelPesan> dataList;
     private Context ctx;
 
@@ -30,17 +33,18 @@ public class PesanAdapter extends RecyclerView.Adapter<PesanAdapter.PesanViewHol
     public PesanViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_pesan, parent, false);
-        ctx=parent.getContext();
+        ctx = parent.getContext();
         return new PesanViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final PesanViewHolder holder, int position) {
+        holder.cardview.setBackgroundResource(R.drawable.rounded_top_right);
         holder.txtJudul.setText(dataList.get(position).getJudul());
         holder.txtIsi.setText(dataList.get(position).getIsi());
-        if (dataList.get(position).getTanggal().equals("same")){
+        if (dataList.get(position).getTanggal().equals("same")) {
             holder.txtTanggal.setVisibility(View.GONE);
-        }else{
+        } else {
             holder.txtTanggal.setText(dataList.get(position).getTanggal());
         }
 //        if (dataList.size()>1){
@@ -57,7 +61,7 @@ public class PesanAdapter extends RecyclerView.Adapter<PesanAdapter.PesanViewHol
 //                intent.putExtra("kd_asset",dataList.get(position).getKode());
 //                intent.putExtra("mon_id",dataList.get(position).getMon_id());
 //                ctx.startActivity(intent);
-                Toast.makeText(ctx,"testing",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "testing", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -67,16 +71,21 @@ public class PesanAdapter extends RecyclerView.Adapter<PesanAdapter.PesanViewHol
         return (dataList != null) ? dataList.size() : 0;
     }
 
-    public class PesanViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtJudul, txtIsi,txtTanggal;
-        private LinearLayout layout;
-
+    public class PesanViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.pesan_list_tanggal)
+        TextView txtTanggal;
+        @BindView(R.id.pesan_list_judul)
+        TextView txtJudul;
+        @BindView(R.id.pesan_list_isi)
+        TextView txtIsi;
+        @BindView(R.id.cardview)
+        CardView cardview;
+        @BindView(R.id.pesan_list)
+        LinearLayout layout;
         public PesanViewHolder(View itemView) {
             super(itemView);
-            layout = itemView.findViewById(R.id.pesan_list);
-            txtTanggal = itemView.findViewById(R.id.pesan_list_tanggal);
-            txtJudul= itemView.findViewById(R.id.pesan_list_judul);
-            txtIsi = itemView.findViewById(R.id.pesan_list_isi);
+            ButterKnife.bind(this, itemView);
+
         }
     }
 }

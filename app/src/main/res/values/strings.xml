@@ -75,7 +75,7 @@
     <string name="piutang_judulbank">ID VA/Bank</string>
     <string name="piutang_judulnis">NIS</string>
     <string name="piutang_saldo">: Rp. 0</string>
-    <string name="piutang_judulsaldo">Saldo Awal</string>
+    <string name="piutang_judulsaldo">Saldo PDD</string>
     <string name="piutang_keterangan">Keterangan</string>
     <string name="piutang_nilai">Nilai</string>
     <string name="piutang_transaksi">Transaksi</string>
@@ -85,4 +85,9 @@
     <string name="deposit_riwayat">Riwayat</string>
     <string name="deposit">Deposit</string>
     <string name="rincian_deposit">Rincian Deposit</string>
+    <string name="piutang_kelas">Kelas</string>
+    <string name="piutang_kelas_text">: X 10 RPL</string>
+    <string name="angkatan">Angkatan</string>
+    <string name="angkatan_text">: 2019-2020</string>
+    <string name="rpl">: REKAYASA PERANGKAT LUNAK</string>
 </resources>

@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Daftar2Item{
+public class Deposit2Item {
 
 	@SerializedName("debet")
 	private String debet;
@@ -86,7 +86,7 @@ public class Daftar2Item{
 	@Override
  	public String toString(){
 		return 
-			"Daftar2Item{" + 
+			"Deposit2Item{" +
 			"debet = '" + debet + '\'' + 
 			",no_bukti = '" + noBukti + '\'' + 
 			",keterangan = '" + keterangan + '\'' + 

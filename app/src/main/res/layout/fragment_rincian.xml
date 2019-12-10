@@ -4,73 +4,84 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
-            <TextView
-                android:id="@+id/tv_back"
-                android:gravity="center"
-                android:drawablePadding="10dp"
-                android:drawableStart="@drawable/ic_arrow_back_black_24dp"
-                android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
-                android:textColor="@color/colorBlack"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rincian_tagihan"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="5dp"
-            android:background="@color/colorSoftGrey"/>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="10dp">
+            android:orientation="vertical"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@color/colorBluePrimary"
-                android:padding="10dp"
-                android:weightSum="2">
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
                 <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_back"
+                    android:gravity="center"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+                    android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:text="@string/tagihan"/>
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:gravity="end"
-                    android:text="@string/dana"/>
+                    android:text="@string/rincian_tagihan"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="5dp"
+                android:background="@color/colorSoftGrey"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBluePrimary"
+                    android:padding="10dp"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/tagihan"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:gravity="end"
+                        android:text="@string/dana"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rincian_recyclerview"
-            android:layout_width="match_parent"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rincian_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"/>
-    </LinearLayout>
+            />
+    </FrameLayout>
 
 </ScrollView>

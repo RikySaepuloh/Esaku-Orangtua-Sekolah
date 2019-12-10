@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/list_rincian_item_kodeparam"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_listbiru"
+            android:drawableStart="@drawable/ic_listbiru"
+            android:textColor="@color/colorBlack"
+            android:text="SPP"/>
+        <TextView
+            android:id="@+id/list_rincian_item_nilai"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="10sp"
+            android:textColor="@color/colorBlack"
+            android:text="@string/dana"/>
+    </LinearLayout>
+</LinearLayout>

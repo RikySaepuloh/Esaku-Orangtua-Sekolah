@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -33,29 +35,42 @@
                     android:layout_alignParentStart="true"
                     android:text="@string/menu_pelajaran"/>
                 <TextView
+                    android:id="@+id/pelajaran_tanggal"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:drawableStart="@drawable/ic_listbiru"
-                    android:drawableLeft="@drawable/ic_listbiru"
+                    android:drawableStart="@drawable/ic_date"
+                    android:drawableLeft="@drawable/ic_date"
                     android:textColor="@color/colorBluePrimary"
                     android:layout_gravity="center"
+                    android:layout_centerInParent="true"
                     android:gravity="end"
                     android:text="@string/short_date"
                     />
             </RelativeLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabSelectedTextColor="@color/colorBluePrimary"
+
+                app:tabMode="scrollable"
+                android:id="@+id/tablayout"
+                >
+
+            </com.google.android.material.tabs.TabLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
                 android:layout_height="5dp"
                 android:background="@color/colorSoftGrey"/>
-            <TabHost
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                
-            </TabHost>
+
+            <androidx.viewpager.widget.ViewPager
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/pager">
+
+                    </androidx.viewpager.widget.ViewPager>
         </LinearLayout>
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -66,4 +81,4 @@
             />
     </FrameLayout>
 
-</ScrollView>
+</LinearLayout>

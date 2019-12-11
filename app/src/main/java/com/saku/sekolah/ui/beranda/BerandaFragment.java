@@ -76,6 +76,13 @@ public class BerandaFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        menuPelajaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PelajaranActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

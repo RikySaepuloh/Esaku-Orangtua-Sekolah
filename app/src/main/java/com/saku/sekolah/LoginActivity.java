@@ -61,15 +61,16 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
+        context = this;
+        sp = new Preferences(context);
+        mApiService = UtilsApi.getAPIService(context); // meng-init yang ada di package apihelper
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btn_login);
         btnShow = findViewById(R.id.btn_show);
 
         params = 0;
-        context = this;
-        sp = new Preferences(context);
+
 
         if (sp.getIsLogedIn().equals(true)) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

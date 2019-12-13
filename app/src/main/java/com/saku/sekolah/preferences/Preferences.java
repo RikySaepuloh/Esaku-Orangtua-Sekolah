@@ -33,6 +33,7 @@ public class Preferences {
     private String dash="dash";
     private String kodeBidang="kode_bidang";
 
+    Context context;
 
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;

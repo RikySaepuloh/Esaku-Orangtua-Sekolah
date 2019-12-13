@@ -65,7 +65,7 @@ public class HariFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hari, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
+        mApiService = UtilsApi.getAPIService(context);
         context = getContext();
         sp = new Preferences(context);
         adapter=new PelajaranAdapter(context);

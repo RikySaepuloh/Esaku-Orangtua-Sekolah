@@ -19,6 +19,17 @@ public class Deposit{
 	@SerializedName("status")
 	private boolean status;
 
+	@SerializedName("message")
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public void setSoAkhir(String soAkhir){
 		this.soAkhir = soAkhir;
 	}

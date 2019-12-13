@@ -64,9 +64,9 @@ public class BerandaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
+        mApiService = UtilsApi.getAPIService(context);
         loadImage=new LoadImage(ivProfile,sp.getFoto());
         tvUsername.setText(sp.getNamaUser());
         menuAbsensi.setOnClickListener(new View.OnClickListener() {

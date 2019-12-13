@@ -12,6 +12,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -31,7 +32,6 @@ public interface BaseApiService {
 
     @GET("Keuangan.php?fx=getPDD") // Ini untuk methodnya
     Call<Deposit> getDeposit(
-            @Query("token") String token,
             @Query("nik") String nik,
             @Query("kode_pp") String kode_pp,
             @Query("kode_lokasi") String kode_lokasi
@@ -39,15 +39,14 @@ public interface BaseApiService {
 
     @GET("Keuangan.php?fx=getPiutang") // Ini untuk methodnya
     Call<Piutang> getPiutang(
-            @Query("token") String token,
             @Query("nik") String nik,
             @Query("kode_pp") String kode_pp,
             @Query("kode_lokasi") String kode_lokasi
     );
 
+
     @GET("Keuangan.php?fx=getRiwayat") // Ini untuk methodnya
     Call<Riwayat> getRiwayat(
-            @Query("token") String token,
             @Query("nik") String nik,
             @Query("kode_pp") String kode_pp,
             @Query("kode_lokasi") String kode_lokasi
@@ -55,7 +54,6 @@ public interface BaseApiService {
 
     @GET("Keuangan.php?fx=getDetailPiu") // Ini untuk methodnya
     Call<Rincian> getRincian(
-            @Query("token") String token,
             @Query("nik") String nik,
             @Query("kode_pp") String kode_pp,
             @Query("kode_lokasi") String kode_lokasi,

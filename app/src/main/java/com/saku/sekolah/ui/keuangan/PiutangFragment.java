@@ -73,10 +73,10 @@ public class PiutangFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_piutang, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
+        mApiService = UtilsApi.getAPIService(context);
         sp = new Preferences(context);
-        initPiutang(sp.getToken(), sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
+        initPiutang(sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
 //        piutangArrayList.add(new ModelPiutang("a","b","c","d","e"));
 
         tvBack.setOnClickListener(new View.OnClickListener() {
@@ -90,10 +90,10 @@ public class PiutangFragment extends Fragment {
     }
 
 
-    private void initPiutang(String token, String nik, String kode_pp, String lokasi) {
+    private void initPiutang(String nik, String kode_pp, String lokasi) {
         progressBar.setVisibility(View.VISIBLE);
         piutangArrayList.clear();
-        mApiService.getPiutang(token, nik, kode_pp, lokasi)
+        mApiService.getPiutang(nik, kode_pp, lokasi)
                 .enqueue(new Callback<Piutang>() {
                     @Override
                     public void onResponse(Call<Piutang> call, Response<Piutang> response) {

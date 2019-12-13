@@ -132,10 +132,8 @@ public class RincianFragment extends Fragment {
                                     }
                                 }
                                 adapter.notifyDataSetChanged();
-
-
-                                progressBar.setVisibility(View.GONE);
                             }
+                            progressBar.setVisibility(View.GONE);
                         } else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

@@ -1,5 +1,6 @@
 package com.saku.sekolah.apihelper;
 
+import com.saku.sekolah.model.beranda.prestasi.Prestasi;
 import com.saku.sekolah.model.keuangan.Deposit;
 import com.saku.sekolah.model.keuangan.Piutang;
 import com.saku.sekolah.model.keuangan.Rincian;
@@ -7,12 +8,10 @@ import com.saku.sekolah.model.keuangan.Riwayat;
 import com.saku.sekolah.model.login.KodePpPresenter;
 import com.saku.sekolah.model.login.Login;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -29,6 +28,20 @@ public interface BaseApiService {
     @POST("Login.php?fx=getDaftarPP") // Ini untuk methodnya
     Call<KodePpPresenter> getDaftarPP(
             @Field("nis") String nis);
+
+//    @GET("Eskul.php?fx=getEskul") // Ini untuk methodnya
+//    Call<Ekskul> getEkskul(
+//            @Query("nik") String nik,
+//            @Query("kode_pp") String kode_pp,
+//            @Query("kode_lokasi") String kode_lokasi
+//    );
+
+    @GET("Prestasi.php?fx=getPrestasi") // Ini untuk methodnya
+    Call<Prestasi> getPrestasi(
+            @Query("nik") String nik,
+            @Query("kode_pp") String kode_pp,
+            @Query("kode_lokasi") String kode_lokasi
+    );
 
     @GET("Keuangan.php?fx=getPDD") // Ini untuk methodnya
     Call<Deposit> getDeposit(

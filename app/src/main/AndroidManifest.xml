@@ -25,6 +25,10 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".AbsensiActivity"/>
         <activity android:name=".ui.beranda.PelajaranActivity"/>
+        <activity android:name=".ui.beranda.NilaiActivity" />
+        <activity android:name=".ui.beranda.RaportActivity" />
+        <activity android:name=".ui.beranda.EkskulActivity" />
+        <activity android:name=".ui.beranda.PrestasiActivity" />
     </application>
 
 </manifest>

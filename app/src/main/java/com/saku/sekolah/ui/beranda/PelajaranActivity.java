@@ -51,7 +51,12 @@ public class PelajaranActivity extends AppCompatActivity {
         tablayout.setupWithViewPager(pager);
 
         setTodayDate();
-
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

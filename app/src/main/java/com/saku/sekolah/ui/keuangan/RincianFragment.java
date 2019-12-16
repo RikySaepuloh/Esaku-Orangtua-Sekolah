@@ -67,18 +67,15 @@ public class RincianFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rincian, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
-
+        mApiService = UtilsApi.getAPIService(context);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         adapter = new RincianAdapter(rincianArrayList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        initRincian(sp.getToken(),sp.getUserLog(),sp.getKodePP(),sp.getLokasi(),"2018");
-
-
+        initRincian(sp.getUserLog(),sp.getKodePP(),sp.getLokasi(),"2018");
 
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,12 +87,12 @@ public class RincianFragment extends Fragment {
         return view;
     }
 
-    private void initRincian(String token, String nik, String kode_pp, String lokasi,String tahun) {
+    private void initRincian(String nik, String kode_pp, String lokasi,String tahun) {
         progressBar.setVisibility(View.VISIBLE);
         rincianArrayList.clear();
         rincianItemArrayList.clear();
         rincianItemDataArrayList.clear();
-        mApiService.getRincian(token, nik, kode_pp, lokasi,tahun)
+        mApiService.getRincian(nik, kode_pp, lokasi,tahun)
                 .enqueue(new Callback<Rincian>() {
                     @Override
                     public void onResponse(Call<Rincian> call, Response<Rincian> response) {
@@ -135,10 +132,8 @@ public class RincianFragment extends Fragment {
                                     }
                                 }
                                 adapter.notifyDataSetChanged();
-
-
-                                progressBar.setVisibility(View.GONE);
                             }
+                            progressBar.setVisibility(View.GONE);
                         } else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

@@ -64,11 +64,39 @@ public class BerandaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_beranda, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
+        mApiService = UtilsApi.getAPIService(context);
         loadImage=new LoadImage(ivProfile,sp.getFoto());
         tvUsername.setText(sp.getNamaUser());
+        menuPrestasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PrestasiActivity.class);
+                startActivity(intent);
+            }
+        });
+        menuEkstrakurikuler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EkskulActivity.class);
+                startActivity(intent);
+            }
+        });
+        menuRaport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RaportActivity.class);
+                startActivity(intent);
+            }
+        });
+        menuNilai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), NilaiActivity.class);
+                startActivity(intent);
+            }
+        });
         menuAbsensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

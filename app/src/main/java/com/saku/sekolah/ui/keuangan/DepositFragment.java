@@ -77,10 +77,10 @@ public class DepositFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_deposit, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
-        initDeposit(sp.getToken(), sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
+        mApiService = UtilsApi.getAPIService(context);
+        initDeposit(sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
 
         btnLaporandeposit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +109,10 @@ public class DepositFragment extends Fragment {
         return view;
     }
 
-    private void initDeposit(String token, String nik, String kode_pp, String lokasi) {
+    private void initDeposit(String nik, String kode_pp, String lokasi) {
         progressBar.setVisibility(View.VISIBLE);
         depositArrayList.clear();
-        mApiService.getDeposit(token, nik, kode_pp, lokasi)
+        mApiService.getDeposit(nik, kode_pp, lokasi)
                 .enqueue(new Callback<Deposit>() {
                     @Override
                     public void onResponse(Call<Deposit> call, Response<Deposit> response) {
@@ -152,8 +152,10 @@ public class DepositFragment extends Fragment {
                                     recyclerView.setLayoutManager(layoutManager);
                                     recyclerView.setAdapter(adapter);
                                 }
-                                progressBar.setVisibility(View.GONE);
+                            }else{
+                                Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
                             }
+                            progressBar.setVisibility(View.GONE);
                         } else {
                             Toast.makeText(context, "Server Bermasalah", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);

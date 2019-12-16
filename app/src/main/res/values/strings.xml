@@ -93,4 +93,8 @@
     <string name="absensi_detail_absensi">Detail Absensi</string>
     <string name="short_date">02/19/2019</string>
     <string name="akademik">Akademik</string>
+    <string name="raport">Raport</string>
+    <string name="nilai">Nilai</string>
+    <string name="ekstrakurikuler">Ekstrakurikuler</string>
+    <string name="prestasi">Prestasi</string>
 </resources>

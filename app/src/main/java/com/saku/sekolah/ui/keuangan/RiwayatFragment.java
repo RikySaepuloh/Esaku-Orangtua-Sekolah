@@ -60,10 +60,11 @@ public class RiwayatFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_riwayat, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
-        initRiwayat(sp.getToken(), sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
+        mApiService = UtilsApi.getAPIService(context);
+
+        initRiwayat(sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,10 +75,10 @@ public class RiwayatFragment extends Fragment {
         return view;
     }
 
-    private void initRiwayat(String token, String nik, String kode_pp, String lokasi) {
+    private void initRiwayat(String nik, String kode_pp, String lokasi) {
         progressBar.setVisibility(View.VISIBLE);
         riwayatArrayList.clear();
-        mApiService.getRiwayat(token, nik, kode_pp, lokasi)
+        mApiService.getRiwayat(nik, kode_pp, lokasi)
                 .enqueue(new Callback<Riwayat>() {
                     @Override
                     public void onResponse(Call<Riwayat> call, Response<Riwayat> response) {

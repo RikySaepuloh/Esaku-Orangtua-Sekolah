@@ -82,12 +82,12 @@ public class LaporanDepositFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_laporan_deposit, container, false);
         ButterKnife.bind(this, view);
-        mApiService = UtilsApi.getAPIService();
         context = getContext();
         sp = new Preferences(context);
+        mApiService = UtilsApi.getAPIService(context);
         loadImage=new LoadImage(ivProfile,sp.getLogo());
 //        loadImageFromURL(sp.getLogo());
-        initLaporanDeposit(sp.getToken(), sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
+        initLaporanDeposit( sp.getUserLog(), sp.getKodePP(), sp.getLokasi());
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,10 +113,10 @@ public class LaporanDepositFragment extends Fragment {
 //                });
 //    }
 
-    private void initLaporanDeposit(String token, String nik, String kode_pp, String lokasi) {
+    private void initLaporanDeposit( String nik, String kode_pp, String lokasi) {
         progressBar.setVisibility(View.VISIBLE);
         laporanDepositArrayList.clear();
-        mApiService.getDeposit(token, nik, kode_pp, lokasi)
+        mApiService.getDeposit( nik, kode_pp, lokasi)
                 .enqueue(new Callback<Deposit>() {
                     @Override
                     public void onResponse(Call<Deposit> call, Response<Deposit> response) {

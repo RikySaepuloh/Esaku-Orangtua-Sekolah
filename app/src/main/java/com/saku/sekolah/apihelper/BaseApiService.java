@@ -1,6 +1,7 @@
 package com.saku.sekolah.apihelper;
 
 import com.saku.sekolah.model.keuangan.Deposit;
+import com.saku.sekolah.model.keuangan.Keuangan;
 import com.saku.sekolah.model.keuangan.Piutang;
 import com.saku.sekolah.model.keuangan.Rincian;
 import com.saku.sekolah.model.keuangan.Riwayat;
@@ -51,6 +52,15 @@ public interface BaseApiService {
             @Query("nik") String nik,
             @Query("kode_pp") String kode_pp,
             @Query("kode_lokasi") String kode_lokasi
+    );
+
+    @GET("Keuangan.php?fx=getSaldoPiutang") // Ini untuk methodnya
+    Call<Keuangan> getSaldoPiutang(
+            @Query("token") String token,
+            @Query("nik") String nik,
+            @Query("kode_pp") String kode_pp,
+            @Query("kode_lokasi") String kode_lokasi,
+            @Query("periode") String periode
     );
 
     @GET("Keuangan.php?fx=getDetailPiu") // Ini untuk methodnya

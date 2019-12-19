@@ -6,16 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.saku.sekolah.AbsensiActivity;
-import com.saku.sekolah.LoginActivity;
-import com.saku.sekolah.MainActivity;
 import com.saku.sekolah.R;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
@@ -53,6 +53,10 @@ public class BerandaFragment extends Fragment {
     TextView tvBerandaLihatsemua;
     @BindView(R.id.tv_beranda_judulberita)
     TextView tvBerandaJudulberita;
+    @BindView(R.id.berita)
+    CardView berita;
+    @BindView(R.id.btn_informasi)
+    Button btnInformasi;
     private BaseApiService mApiService;
     private Context context;
     private Preferences sp;
@@ -67,8 +71,34 @@ public class BerandaFragment extends Fragment {
         context = getContext();
         sp = new Preferences(context);
         mApiService = UtilsApi.getAPIService(context);
-        loadImage=new LoadImage(ivProfile,sp.getFoto());
+        loadImage = new LoadImage(ivProfile, sp.getFoto());
         tvUsername.setText(sp.getNamaUser());
+
+        btnInformasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), InformasiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tvBerandaLihatsemua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BeritaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        berita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DetailBeritaActivity.class);
+                intent.putExtra("id", "1");
+                startActivity(intent);
+            }
+        });
+
         menuPrestasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

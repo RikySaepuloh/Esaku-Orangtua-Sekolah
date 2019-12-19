@@ -29,6 +29,9 @@
         <activity android:name=".ui.beranda.RaportActivity" />
         <activity android:name=".ui.beranda.EkskulActivity" />
         <activity android:name=".ui.beranda.PrestasiActivity" />
+        <activity android:name=".ui.beranda.DetailBeritaActivity" />
+        <activity android:name=".ui.beranda.BeritaActivity" />
+        <activity android:name=".ui.beranda.InformasiActivity" />
     </application>
 
 </manifest>

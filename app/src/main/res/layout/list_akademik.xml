@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/list_cvPengajuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/colorSoftGrey">
+        <FrameLayout
+            android:id="@+id/list_absensi_card"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_edge_blue"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+                <LinearLayout
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
+                        android:textColor="@color/colorBlack"
+                        android:id="@+id/list_absensi_jenis"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hadir"
+                        android:paddingTop="5dp"
+                        />
+
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingStart="10dp"
+                        android:id="@+id/list_absensi_tgl"
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="06-09-2019"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="---"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

@@ -33,6 +33,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textSize="18dp"
                     android:text="@string/menu_pelajaran"/>
                 <TextView
                     android:id="@+id/pelajaran_tanggal"
@@ -54,7 +56,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabSelectedTextColor="@color/colorBluePrimary"
-
                 app:tabMode="scrollable"
                 android:id="@+id/tablayout"
                 >

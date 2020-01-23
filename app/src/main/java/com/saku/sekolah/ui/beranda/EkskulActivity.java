@@ -47,12 +47,12 @@ public class EkskulActivity extends AppCompatActivity {
     private void setUpViewPager(ViewPager myViewPager) {
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new HariFragment("Senin"), "Senin");
-        adapter.addFragment(new HariFragment("Selasa"), "Selasa");
-        adapter.addFragment(new HariFragment("Rabu"), "Rabu");
-        adapter.addFragment(new HariFragment("Kamis"), "Kamis");
-        adapter.addFragment(new HariFragment("Jum'at"), "Jum'at");
-        adapter.addFragment(new HariFragment("Sabtu"), "Sabtu");
+        adapter.addFragment(new EkskulFragment("Senin"), "Senin");
+        adapter.addFragment(new EkskulFragment("Selasa"), "Selasa");
+        adapter.addFragment(new EkskulFragment("Rabu"), "Rabu");
+        adapter.addFragment(new EkskulFragment("Kamis"), "Kamis");
+        adapter.addFragment(new EkskulFragment("Jum'at"), "Jum'at");
+        adapter.addFragment(new EkskulFragment("Sabtu"), "Sabtu");
 //        adapter.addFragment(new HariFragment("Minggu"), "Minggu");
 
         myViewPager.setAdapter(adapter);

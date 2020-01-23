@@ -27,14 +27,15 @@
                     android:drawableStart="@drawable/ic_arrow_back_black_24dp"
                     android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
                     android:textColor="@color/colorBlack"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textSize="18dp"
                     android:layout_height="wrap_content"
                     android:text="@string/prestasi"/>
             </LinearLayout>
             <View
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
                 android:layout_height="5dp"
                 android:background="@color/colorSoftGrey"/>
             <LinearLayout

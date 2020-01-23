@@ -55,8 +55,8 @@ public class NilaiActivity extends AppCompatActivity {
     private void setUpViewPager(ViewPager myViewPager) {
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new NilaiFragment("UTS"), "Senin");
-        adapter.addFragment(new NilaiFragment("UAS"), "Selasa");
+        adapter.addFragment(new NilaiFragment("UTS"), "UTS");
+        adapter.addFragment(new NilaiFragment("UAS"), "UAS");
 
         myViewPager.setAdapter(adapter);
     }

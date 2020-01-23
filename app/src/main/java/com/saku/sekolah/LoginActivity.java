@@ -39,7 +39,8 @@ public class LoginActivity extends Activity {
     Activity activity = this;
     private static final int PERMISSION_REQUEST_CODE = 1;
     ArrayList<String> _mst = new ArrayList<>();
-
+    String action="";
+    String is="action";
     EditText etUsername, etPassword;
     String newToken;
     BaseApiService mApiService;
@@ -67,15 +68,20 @@ public class LoginActivity extends Activity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btn_login);
-        btnShow = findViewById(R.id.btn_show);
-
+//        btnShow = findViewById(R.id.btn_show);
+        Bundle intents = getIntent().getExtras();
         params = 0;
+//        action = intents.getString("action");
 
 
         if (sp.getIsLogedIn().equals(true)) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            if(intents != null){
+
+            }else {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
 //        etUsername.setOnKeyListener(new View.OnKeyListener() {
 //            @Override
@@ -95,27 +101,29 @@ public class LoginActivity extends Activity {
         });
 
 
-        btnShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (params == 0) {
-                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    params = 1;
-                    btnShow.setText("hide");
-                } else {
-                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    params = 0;
-                    btnShow.setText("show");
-                }
-            }
-        });
+//        btnShow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (params == 0) {
+//                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//                    params = 1;
+//                    btnShow.setText("hide");
+//                } else {
+//                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//                    params = 0;
+//                    btnShow.setText("show");
+//                }
+//            }
+//        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String kode_plan = kodePpId.get(spinner.getSelectedItemPosition());
                 login(etUsername.getText().toString(), etPassword.getText().toString(), kode_plan);
-//                Toast.makeText(getApplicationContext(),"Berhasil Login",Toast.LENGTH_SHORT).show();
+//                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+//                    startActivity(i);
+                Toast.makeText(getApplicationContext(),"Berhasil Login",Toast.LENGTH_SHORT).show();
 //                Toast.makeText(null, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
 //                requestLogin();
             }

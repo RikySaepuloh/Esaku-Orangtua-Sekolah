@@ -23,58 +23,66 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etUsername"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:ems="10"
+            android:layout_width="293dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/text_field_background"
+            android:fontFamily="@font/sf_pro_text_regular"
+            android:textSize="12dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textColorHighlight="#000000"
             android:hint="Username"
             android:inputType="text"
-            android:background="@drawable/rounded_outline_grey"
-            android:textColorHighlight="@color/colorRed"
-            android:textColorLink="@color/secondaryText"
-            android:textCursorDrawable="@color/secondaryText" />
+            android:layout_marginTop="0dp" />
 
-        <RelativeLayout
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            android:layout_marginRight="50dp"-->
+<!--            android:orientation="horizontal">-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:orientation="horizontal">
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="2dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            >
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:layout_centerVertical="true"
-                android:hint="Password"
-                android:paddingLeft="10dp"
-                android:background="@drawable/rounded_outline_grey"
-                android:textColorHighlight="@color/colorRed"
+                android:layout_width="293dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:textColorLink="@color/secondaryText"
-                android:textCursorDrawable="@color/secondaryText"
-                android:inputType="textPassword" />
-            <TextView
-                android:id="@+id/btn_show"
-                android:layout_marginRight="10dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
-                android:focusable="false"
-                android:layout_height="wrap_content"
-                android:text="show"
-                android:textColor="@color/colorRed"
-                />
+                android:background="@drawable/text_field_background"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:textSize="12dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColorHighlight="#000000"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:layout_marginTop="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/btn_show"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:focusableInTouchMode="false"-->
+<!--                android:focusedByDefault="false"-->
+<!--                android:focusable="false"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="show"-->
+<!--                android:textColor="@color/colorRed"-->
+<!--                />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <Spinner
             android:id="@+id/login_spkodepp"

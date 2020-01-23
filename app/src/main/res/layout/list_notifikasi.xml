@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+    <TextView
+        android:id="@+id/tgl_notif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:textSize="14dp"
+        android:textColor="#000"
+        android:text="26 November 2016"/>
+    <TextView
+        android:id="@+id/judul_notifikasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_text_bold"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:text="Judul Notifikasi"/>
+    <TextView
+        android:id="@+id/notifikasi_teks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_text_regular"
+        android:textSize="14dp"
+        android:text="Deskripsi isi dari notifikasi yang akan disampaikan kepad penerima notifikasi"
+        android:textColor="#000"/>
+
+</LinearLayout>

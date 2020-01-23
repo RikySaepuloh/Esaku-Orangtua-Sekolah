@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,11 +19,17 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.saku.sekolah.AbsensiActivity;
+import com.saku.sekolah.AkademikActivity;
+import com.saku.sekolah.LoginActivity;
 import com.saku.sekolah.R;
 import com.saku.sekolah.apihelper.BaseApiService;
 import com.saku.sekolah.apihelper.UtilsApi;
 import com.saku.sekolah.preferences.LoadImage;
 import com.saku.sekolah.preferences.Preferences;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,8 +38,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class BerandaFragment extends Fragment {
     @BindView(R.id.iv_profile)
     CircleImageView ivProfile;
+//    @BindView(R.id.tv_username)
+//    TextView tvUsername;
     @BindView(R.id.tv_username)
-    TextView tvUsername;
+    Spinner tvUsername;
     @BindView(R.id.iv_alarm)
     TextView ivAlarm;
     @BindView(R.id.menu_absensi)
@@ -63,6 +74,32 @@ public class BerandaFragment extends Fragment {
 
     LoadImage loadImage;
 
+    void CreateList(){
+        List<String> listUsername = new ArrayList<>();
+        listUsername.add(sp.getNamaUser());
+        listUsername.add("+ Tambah Akun");
+        ArrayAdapter<String>usernameAdapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_spinner_item,listUsername);
+        usernameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tvUsername.setAdapter(usernameAdapter);
+        tvUsername.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(listUsername.get(i).toString() == "+ Tambah Akun"){
+                    Intent ins = new Intent(getContext(), LoginActivity.class);
+                    ins.putExtra("action","action");
+                    startActivity(ins);
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,7 +109,8 @@ public class BerandaFragment extends Fragment {
         sp = new Preferences(context);
         mApiService = UtilsApi.getAPIService(context);
         loadImage = new LoadImage(ivProfile, sp.getFoto());
-        tvUsername.setText(sp.getNamaUser());
+        CreateList();
+//        tvUsername.setText(sp.getNamaUser());
 
         btnInformasi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +177,13 @@ public class BerandaFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), PelajaranActivity.class);
                 startActivity(intent);
+            }
+        });
+        menuAkademik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), AkademikActivity.class);
+                startActivity(i);
             }
         });
         return view;

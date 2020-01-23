@@ -29,6 +29,8 @@
                     android:textColor="@color/colorBlack"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textSize="18dp"
                     android:layout_height="wrap_content"
                     android:text="@string/raport"/>
             </LinearLayout>

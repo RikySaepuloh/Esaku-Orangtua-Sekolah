@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                >
                 <TextView
-                    android:id="@+id/tv_back"
+                    android:id="@+id/tom_back"
                     android:gravity="center"
                     android:drawablePadding="10dp"
                     android:drawableStart="@drawable/ic_arrow_back_black_24dp"
                     android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
                     android:textColor="@color/colorBlack"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:textSize="18dp"
                     android:text="@string/akademik"/>
-            </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
             <View
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
                 android:layout_height="5dp"
                 android:background="@color/colorSoftGrey"/>
 
@@ -50,12 +43,10 @@
 <!--                    android:text="@string/absensi_detail_absensi"/>-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_marginTop="20dp"
-                    android:id="@+id/absensi_recyclerview"
+                    android:id="@+id/akademik_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="250dp"/>
 <!--            </LinearLayout>-->
         </LinearLayout>
     </FrameLayout>
-
-</ScrollView>

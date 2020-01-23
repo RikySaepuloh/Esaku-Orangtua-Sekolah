@@ -48,7 +48,7 @@
     <string name="siswa_aktif">Siswa Aktif</string>
     <string name="biodata">Biodata Siswa</string>
     <string name="keluar">Keluar</string>
-    
+
     <!--  Metode Pembayaran  -->
     <string name="metode_pembayaran">Metode Pembayaran</string>
     <string name="text_no_id_bank">Nomor ID Bank</string>
@@ -102,4 +102,7 @@
     <string name="apel_pagi">Apel Pagi dalam rangka Memperingati HUT PRAMUKA yang ke 55 di SMK Negeri 1 Cimahi</string>
     <string name="text_berita2">Berikut adalah Kegiatan Apel Pagi dalam rangka Memperingati HUT PRAMUKA yang ke 55 di SMK Negeri 1 Cimahi yang dilaksanakan pada hari Sabtu 20 Agustus dengan Pembina Mabigus SMK Negeri 1 Cimahi yaitu Bpk. Drs. H. Ermizul, M.Pd dan petugas dari Pramuka Jaga Dhita. Pada kesempatan ini juga, 3 orang anggota Pramuka membacakan UUD 1945, Teks Pancasila dan Dasa Dharma Pramuka.</string>
     <string name="isi_informasi">Penerimaan mahasiswa baru PTN tahun 2020 dilaksanakan melalui tiga jalur dengan masing-masing kuota yang berbeda, yaitu Seleksi Nasional Masuk Perguruan Tinggi Negeri (SNMPTN), Seleksi Bersama Masuk Perguruan Tinggi Negeri ( SBMPTN), dan seleksi mandiri. \n\nJalur SNMPTN memiliki kuota minimum 20 persen dari daya tampung PTN. Jalur SBMPTN memiliki kuota minimum 40 persen. Sedangkan seleksi mandiri memiliki kuota maksimum 30 persen dari daya tampung PTN. \n\nBerdasarkan kuota tersebut, jalur dengan kuota paling besar adalah SBMPTN. Dalam jalur ini, UTBK adalah hal yang harus dipahami dengan baik.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

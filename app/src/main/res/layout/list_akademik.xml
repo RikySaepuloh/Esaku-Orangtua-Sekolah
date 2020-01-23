@@ -11,8 +11,11 @@
         android:id="@+id/list_cvPengajuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/colorSoftGrey">
+        app:cardBackgroundColor="#F9FCFF">
         <FrameLayout
             android:id="@+id/list_absensi_card"
             android:layout_width="10dp"
@@ -31,40 +34,50 @@
                     android:layout_width="0dp"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingStart="10dp"
+                            android:drawableLeft="@drawable/ic_access_time"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            />
                     <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
                         android:paddingLeft="10dp"
                         android:paddingStart="10dp"
                         android:textColor="@color/colorBlack"
-                        android:id="@+id/list_absensi_jenis"
-                        android:layout_width="fill_parent"
+                        android:id="@+id/list_akademik_tgl"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hadir"
+                        android:text="11/12/2019-11/12-2019"
+                        android:textSize="10dp"
                         android:paddingTop="5dp"
                         />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingStart="10dp"
-                        android:id="@+id/list_absensi_tgl"
+                        android:paddingStart="45dp"
+                        android:id="@+id/list_akademik_jadwal"
                         android:textColor="@color/colorBlack"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="06-09-2019"
+                        android:text="Jadwal Akademik"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
                         />
                 </LinearLayout>
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="---"/>
+
             </LinearLayout>
         </LinearLayout>
 

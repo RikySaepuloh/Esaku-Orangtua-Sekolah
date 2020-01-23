@@ -1,6 +1,7 @@
 package com.saku.sekolah.ui.keuangan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,78 +105,36 @@ public class KeuanganFragment extends Fragment {
         menuRiwayat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RiwayatFragment newFragment = new RiwayatFragment();
-
-                FragmentTransaction transaction = null;
-                if (getFragmentManager() != null) {
-                    transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
-                    transaction.addToBackStack(null);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
+                Intent i = new Intent(getContext(),RiwayatActivity.class);
+                startActivity(i);
             }
         });
         menuPiutang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PiutangFragment newFragment = new PiutangFragment();
-
-                FragmentTransaction transaction = null;
-                if (getFragmentManager() != null) {
-                    transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
-                    transaction.addToBackStack(null);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
+                Intent i = new Intent(getContext(),PiutangActivity.class);
+                startActivity(i);
             }
         });
         menuDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DepositFragment newFragment = new DepositFragment();
-
-                FragmentTransaction transaction = null;
-                if (getFragmentManager() != null) {
-                    transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
-                    transaction.addToBackStack(null);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
+                Intent i = new Intent(getContext(),DepositActivity.class);
+                startActivity(i);
             }
         });
         menuRincian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RincianFragment newFragment = new RincianFragment();
-
-                FragmentTransaction transaction = null;
-                if (getFragmentManager() != null) {
-                    transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
-                    transaction.addToBackStack(null);
-
-                    // Commit the transaction
-                    transaction.commit();
-                }
+                Intent i = new Intent(getContext(),RincianActivity.class);
+                startActivity(i);
             }
         });
         menuBayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MetodePembayaranFragment newFragment = new MetodePembayaranFragment();
-                FragmentTransaction transaction = null;
-                if (getFragmentManager() != null) {
-                    transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, newFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                }
+                Intent i = new Intent(getContext(),MetodePembayaranActivity.class);
+                startActivity(i);
             }
         });
     }

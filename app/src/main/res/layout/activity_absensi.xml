@@ -50,7 +50,7 @@
                         android:orientation="horizontal"
                         android:padding="10dp"
                         android:weightSum="2"
-                        android:background="@color/colorBluePrimary"
+                        android:background="@drawable/hadir"
                         >
                         <LinearLayout
                             android:layout_weight="1"
@@ -143,7 +143,7 @@
                         android:orientation="horizontal"
                         android:padding="10dp"
                         android:weightSum="2"
-                        android:background="@color/colorYellow"
+                        android:background="@drawable/ijin"
                         >
                         <LinearLayout
                             android:layout_weight="1"
@@ -185,7 +185,7 @@
                         android:orientation="horizontal"
                         android:padding="10dp"
                         android:weightSum="2"
-                        android:background="@color/colorRedSoft"
+                        android:background="@drawable/alpha"
                         >
                         <LinearLayout
                             android:layout_weight="1"
